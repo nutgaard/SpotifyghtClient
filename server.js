@@ -20,7 +20,7 @@ if (env === 'dev') {
     app.use(cors);
     app.use(express.static(__dirname));
 }
-app.use(express.static(__dirname +'/'+ config.resources));
+app.use(express.static(__dirname +'/'+ resources));
 
 app.listen(port, function () {
     console.log('Server started on port ', port);
