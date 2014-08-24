@@ -3,7 +3,7 @@ var morgan = require('morgan');
 var env = process.env.NODE_ENV || 'prod';
 
 var config = require('./config.json')[env];
-var port = config.port || 5000;
+var port = process.env.PORT || config.port || 5000;
 var resources = config.resources || '/app/app/';
 
 console.log('Launching appliction in %s mode', env);
@@ -22,7 +22,7 @@ if (env === 'dev') {
 }
 app.use(express.static(__dirname +'/'+ config.resources));
 
-app.listen(config.port, function () {
-    console.log('Server started on port ', config.port);
+app.listen(port, function () {
+    console.log('Server started on port ', port);
 });
 
