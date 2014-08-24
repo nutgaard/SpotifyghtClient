@@ -1,10 +1,10 @@
 {
 	"dev": {
 		"port": 5000,
-		"resources": "/app/app/"
+		"resources": "app/app/"
 	},
     "prod": {
 		"port": 5000,
-		"resources": "/app/www/"
+		"resources": "app/www/"
 	}
 }
