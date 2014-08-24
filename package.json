@@ -1,0 +1,27 @@
+{
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "~0.10.0",
+    "grunt-contrib-watch": "~0.6.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "semnotes",
+  "version": "0.0.1",
+  "description": "Semantic Notes",
+  "main": "server.js",
+  "keywords": [
+    "Semantic",
+    "Notes"
+  ],
+  "author": "Nicklas Utgaard",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.6.5",
+    "express": "^4.8.5"
+  }
+}
