@@ -5,8 +5,9 @@
         'ngRoute',
         'ngResource',
         'spotifyghtAppControllers',
-        'VotingService'
-    ]);
+        'VotingService',
+        'btford.socket-io'
+    ]).constant('API_ENDPOINT', 'http://localhost:3001/');
 
     // instantiate module
     angular.module('spotifyghtAppControllers', ['VotingService']);
