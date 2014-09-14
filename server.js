@@ -1,4 +1,4 @@
-var express = require('express');
+var express = require('express.io');
 var morgan = require('morgan');
 var env = process.env.NODE_ENV || 'prod';
 
@@ -14,7 +14,10 @@ var cors = function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type Accept');
     next();
 }
+
 var app = express();
+app.http().io();
+
 if (env === 'dev') {
     app.use(morgan('dev'));
     app.use(cors);
