@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html ng-app="spotifyghtApp">
 <head>
     <meta charset="utf-8"/>
     <meta name="format-detection" content="telephone=no"/>
@@ -25,11 +25,22 @@
     </ul>
 </nav>
 
+<div class="view-container">
+    <div ng-view></div>
+</div>
 
-<!-- build:js js/optimized.js -->
+
 <script type="text/javascript" src="cordova.js"></script>
+<!-- build:js js/optimized.js -->
 <script type="text/javascript" src="../../bower_components/jQuery/dist/jquery.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="../../bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="../../bower_components/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="../../bower_components/angular-resource/angular-resource.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="js/controllers/ApplicationCtrl.js"></script>
+<script type="text/javascript" src="js/controllers/HomeCtrl.js"></script>
+<script type="text/javascript" src="js/controllers/GroupCtrl.js"></script>
+<script type="text/javascript" src="js/services/VotingService.js"></script>
 <!-- endbuild -->
 </body>
 </html>

@@ -1,14 +1,14 @@
 {
-  "name": "semnotes",
+  "name": "spotifyght-client",
   "version": "0.0.1",
   "authors": [
     "Nicklas Utgaard <nicklas.utgaard@bekk.no>"
   ],
-  "description": "Semantic Notes",
+  "description": "Spotify voting client",
   "main": "server.js",
   "keywords": [
-    "Semantic",
-    "Notes"
+    "Spotify",
+    "voting"
   ],
   "license": "MIT",
   "private": true,
@@ -20,6 +20,9 @@
     "tests"
   ],
   "dependencies": {
-    "jQuery": "~2.1.1"
+    "jQuery": "~2.1.1",
+    "angular": "~1.3.0",
+    "angular-route": "~1.3.0",
+    "angular-resource": "~1.3.0"
   }
 }
