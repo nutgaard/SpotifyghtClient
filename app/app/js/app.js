@@ -10,7 +10,9 @@
     ]).constant('API_ENDPOINT', 'http://localhost:3001/');
 
     // instantiate module
-    angular.module('spotifyghtAppControllers', ['VotingService']);
+    angular.module('spotifyghtAppControllers', ['VotingService', 'SocketService']);
+
+
 
     spotify.config(['$routeProvider', '$httpProvider', '$locationProvider',
         function ($routeProvider, $httpProvider, $locationProvider) {
