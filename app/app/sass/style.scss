@@ -1,8 +1,9 @@
 @import 'colors';
 @import "../components/searchspotify/searchSpotify";
 
-* {
-  box-sizing: border-box;
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 body,html {
   width: 100%;
@@ -10,9 +11,11 @@ body,html {
 }
 body {
   background-color: $dark;
+  color: $light;    
 }
 .vote {
   color: red;
+  @include user-select(none);
 }
 input:focus,
 select:focus,

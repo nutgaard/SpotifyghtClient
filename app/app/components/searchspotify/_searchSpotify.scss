@@ -2,19 +2,31 @@
 @import "compass";
 
 search-spotify {
-    input {
-        height: 1.6rem;   
-        @include border-radius(15px);
-        padding: 6px 15px 6px 30px;
-        margin: 3px;
-        background-color: #fcfcfc;
-        border: 1px solid #d0d0d0;
-        
-        &:focus {
-            background-color: $light;
+    width: 100%;
+    display: block;
+    
+    div {
+        width: 100%;
+        padding: 0px 10px;
+        input {
+            height: 1.6rem;   
+            width: 100%;
+            @include border-radius(15px);
+            padding: 6px 15px 6px 30px;
+            background-color: #fcfcfc;
+            border: 1px solid #d0d0d0;
+
+            &:focus {
+                background-color: $light;
+            }
+            @include input-placeholder {
+                color: #bcbcbc;
+            }
         }
-        @include input-placeholder {
-            color: #bcbcbc;
+        ul {
+            li {
+
+            }
         }
     }
 }
