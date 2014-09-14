@@ -2,11 +2,17 @@
     'use strict';
 
     angular.module('spotifyghtAppControllers')
-        .controller('GroupCtrl', ['$scope', '$routeParams', '$location', 'Group', 'Track', 'socket',
-            function($scope, $routeParams, $location, Group, Track, socket) {
+        .controller('GroupCtrl', ['$scope', '$routeParams', '$location', 'Group', 'Track', 'socket', 'SpotifyWebAPI',
+            function($scope, $routeParams, $location, Group, Track, socket, SpotifyWebAPI) {
                 console.log("loaded group");
                 var loadTracks = function () {
                     Track.index({groupId: $routeParams.groupId}, function(tracks, response) {
+                        var trackIds = _.map(tracks.scores, function (t) { return findTrackId(t); });
+                        console.log(trackIds);
+                        SpotifyWebAPI.getTracks(trackIds).then(function(data, info) {
+                            console.log(data);
+                            console.log(info);
+                        });
                         $scope.tracks = tracks.scores;
                     });
                 };
@@ -29,9 +35,16 @@
                     found.score = parseInt(trackVote.score);
                 };
 
+                var trackDeleted = function(data) {
+                    console.log('deleted: ' + data);
+                    loadTracks();
+                };
+
                 socket.on('songadded', newSongCallback);
 
                 socket.on('change:vote', updateVote);
+
+                socket.on('track:deleted', trackDeleted);
 
                 socket.emit('ready', {group: $routeParams.groupId});
 
