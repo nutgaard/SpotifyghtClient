@@ -16,7 +16,22 @@
                     console.log(data);
                     loadTracks();
                 };
+                var updateVote = function(trackVote) {
+                    if(!trackVote.hasOwnProperty('id')) {
+                        return;
+                    }
+                    if(!trackVote.hasOwnProperty('score')) {
+                        return;
+                    }
+                    var found = _.find($scope.tracks, { 'id': trackVote.id });
+                    console.log('found');
+                    console.log(found);
+                    found.score = parseInt(trackVote.score);
+                };
+
                 socket.on('songadded', newSongCallback);
+
+                socket.on('change:vote', updateVote);
 
                 socket.emit('ready', {group: $routeParams.groupId});
 
