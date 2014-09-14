@@ -6,6 +6,7 @@ $light: #FFFFFF;
 $highlightYellow: #EBD411;
 $highlightOrange: #FF6000;
 $highlightRed: #F25555;
+$highlightGreen: #648F00;
 
 * {
   box-sizing: border-box;
@@ -29,6 +30,10 @@ li:nth-child(3) {
 }
 li:nth-child(4) {
 	color: $highlightRed;
-}.vote {
+}
+li:nth-child(5) {
+	color: $highlightGreen;
+}
+.vote {
   color: red;
 }
