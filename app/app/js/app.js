@@ -9,7 +9,7 @@
         'btford.socket-io',
         'spotifyghtComponents',
         'spotifyghtAppControllers'
-    ]).constant('API_ENDPOINT', 'http://localhost:3001/');
+    ]).constant('API_ENDPOINT', 'http://10.0.1.2:3001/');
 
     // instantiate module
     angular.module('spotifyghtAppControllers', ['VotingService', 'SocketService']);

@@ -79,6 +79,7 @@
         "angular": true,
         "io": true,
         "_": true,
-        "SpotifyWebApi": true
+        "SpotifyWebApi": true,
+        "require": true
     }        // additional predefined global variables
 }
