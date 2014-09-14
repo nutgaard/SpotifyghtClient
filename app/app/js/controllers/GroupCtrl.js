@@ -2,8 +2,8 @@
     'use strict';
 
     angular.module('spotifyghtAppControllers')
-        .controller('GroupCtrl', ['$scope', '$routeParams', 'Group', 'Track', 'Vote',
-            function($scope, $routeParams, Group, Track, Vote) {
+        .controller('GroupCtrl', ['$scope', '$routeParams', '$location', 'Group', 'Track', 'socket',
+            function($scope, $routeParams, $location, Group, Track, socket) {
                 console.log("loaded group");
                 var loadTracks = function () {
                     Track.index({groupId: $routeParams.groupId}, function(tracks, response) {
@@ -12,6 +12,20 @@
                         $scope.tracks = tracks.scores;
                     });
                 };
+
+                var newSongCallback = function (data) {
+                    console.log("newsong");
+                    console.log(data);
+                };
+                socket.on('songadded', newSongCallback);
+
+                socket.emit('ready', {group: $routeParams.groupId});
+
+                $scope.$on('socket:error', function (ev, data) {
+                    console.log('socket error');
+                    console.log(ev);
+                    console.log(data);
+                });
 
                 function findTrackId(track) {
                     var str = track;
