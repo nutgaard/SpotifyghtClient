@@ -1,12 +1,20 @@
-@import 'colors';
+@import '../../sass/mixins';
 @import "compass";
-
-$inputheight: 1.6rem;
 
 search-spotify {
     input {
-        background-color: #F00;
-        height: $inputheight;   
-        @include border-radius($inputheight/2)
+        height: 1.6rem;   
+        @include border-radius(15px);
+        padding: 6px 15px 6px 30px;
+        margin: 3px;
+        background-color: #fcfcfc;
+        border: 1px solid #d0d0d0;
+        
+        &:focus {
+            background-color: $light;
+        }
+        @include input-placeholder {
+            color: #bcbcbc;
+        }
     }
 }

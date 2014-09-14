@@ -10,23 +10,13 @@ body,html {
 }
 body {
   background-color: $dark;
-  color: $light;
-}
-li:nth-child(1) {
-	color: $grey;
-}
-li:nth-child(2) {
-	color: $highlightYellow;
-}
-li:nth-child(3) {
-	color: $highlightOrange;
-}
-li:nth-child(4) {
-	color: $highlightRed;
-}
-li:nth-child(5) {
-	color: $highlightGreen;
 }
 .vote {
   color: red;
+}
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
 }
