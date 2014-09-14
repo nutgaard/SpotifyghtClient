@@ -47,7 +47,7 @@
                     Track.vote({groupId: $routeParams.groupId, trackId: trackid}, function(result, response) {
                         console.log(result);
                         console.log(response);
-                        track.score = result.score;
+                        track.score = parseInt(result.score);
                     });
 
                 };
