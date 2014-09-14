@@ -23,7 +23,7 @@
     }
     ]);
     votingservices.factory('Vote', ['$resource', function($resource) {
-        return $resource(API_ENDPOINT + '/group/:groupId/:trackId/vote', {groupId: '@groupId', track: '@trackId'}, {
+        return $resource(API_ENDPOINT + 'group/:groupId/:trackId/vote', {groupId: '@groupId', trackId: '@trackId'}, {
             vote: {method: 'POST' }
         });
     }]);
