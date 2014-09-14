@@ -14,6 +14,7 @@
                 var newSongCallback = function (data) {
                     console.log("newsong");
                     console.log(data);
+                    loadTracks();
                 };
                 socket.on('songadded', newSongCallback);
 
