@@ -1,5 +1,12 @@
 @import "compass";
 
+$dark: #262626;
+$grey: #999999;
+$light: #FFFFFF;
+$highlightYellow: #EBD411;
+$highlightOrange: #FF6000;
+$highlightRed: #F25555;
+
 * {
   box-sizing: border-box;
 }
@@ -8,11 +15,20 @@ body,html {
   height: 100%;
 }
 body {
-  nav {
-
-  }
-  @include border-radius(100%);
+  background-color: $dark;
+  color: $light;
 }
-.vote {
+li:nth-child(1) {
+	color: $grey;
+}
+li:nth-child(2) {
+	color: $highlightYellow;
+}
+li:nth-child(3) {
+	color: $highlightOrange;
+}
+li:nth-child(4) {
+	color: $highlightRed;
+}.vote {
   color: red;
 }
