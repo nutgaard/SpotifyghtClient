@@ -1,5 +1,5 @@
 <section class="tracks">
     <section ng-repeat="track in tracks">
-        {{track}}
+        <p>{{track}}</p><a ng-click="voteForTrack(track)" class="vote">Vote!</a>
     </section>
 </section>
