@@ -62,11 +62,17 @@ module.exports = function (grunt) {
                 blockReplacements: {
                     js: function (block) {
                         var name = config.prod.resources+block.dest;
+                        if (typeof grunt.filerev.summary[name] === 'undefined'){
+                            return '';
+                        }
                         var path = grunt.filerev.summary[name].split('/').splice(2).join('/');
                         return '<script type="text/javascript" src="' + path + '"></script>';
                     },
                     css: function (block) {
                         var name = config.prod.resources+block.dest;
+                        if (typeof grunt.filerev.summary[name] === 'undefined'){
+                            return '';
+                        }
                         var path = grunt.filerev.summary[name].split('/').splice(2).join('/');
                         return '<link rel="stylesheet" type="text/css" href="' + path + '">';
                     }
