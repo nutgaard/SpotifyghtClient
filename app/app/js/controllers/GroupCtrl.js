@@ -31,9 +31,10 @@
 
                 var voteForTrack = function(track) {
                     var trackid = findTrackId(track);
-                    Vote.vote({groupId: $routeParams.groupId, trackId: trackid}, function(result, response) {
+                    Track.vote({groupId: $routeParams.groupId, trackId: trackid}, function(result, response) {
                         console.log(result);
                         console.log(response);
+                        track.score = result.score;
                     });
 
                 };

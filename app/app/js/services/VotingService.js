@@ -18,7 +18,10 @@
     votingservices.factory('Track', ['$resource', '$routeParams', function ($resource, $routeParams) {
         return $resource(API_ENDPOINT + 'group/:groupId/tracks', {}, {
             index: {method: 'GET'},
-            create: {method: 'POST'}
+            create: {method: 'POST'},
+            vote: {method: 'POST', url: API_ENDPOINT + 'group/:groupId/:trackId/vote',
+                    params: { groupId:'@groupId', trackId: '@trackId' }
+            }
         });
     }
     ]);
