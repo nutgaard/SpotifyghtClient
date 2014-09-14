@@ -9,3 +9,5 @@ app/www
 .tmp/
 bower_components/
 app/app/css/*.css
+/nbproject/private/
+nbproject/

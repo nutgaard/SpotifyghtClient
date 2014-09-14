@@ -77,6 +77,8 @@
     // Custom Globals
     "globals"       : {
         "angular": true,
-        "io": true
+        "io": true,
+        "_": true,
+        "SpotifyWebApi": true
     }        // additional predefined global variables
 }

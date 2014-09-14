@@ -1,0 +1,12 @@
+@import 'colors';
+@import "compass";
+
+$inputheight: 1.6rem;
+
+search-spotify {
+    input {
+        background-color: #F00;
+        height: $inputheight;   
+        @include border-radius($inputheight/2)
+    }
+}

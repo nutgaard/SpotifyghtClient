@@ -6,14 +6,15 @@
         'ngResource',
         'spotifyghtAppControllers',
         'VotingService',
-        'btford.socket-io'
+        'btford.socket-io',
+        'spotifyghtComponents',
+        'spotifyghtAppControllers'
     ]).constant('API_ENDPOINT', 'http://localhost:3001/');
 
     // instantiate module
     angular.module('spotifyghtAppControllers', ['VotingService', 'SocketService']);
-
-
-
+    angular.module('spotifyghtComponents', ['SpotifyWebAPIService', 'spotifyghtAppControllers']);
+    
     spotify.config(['$routeProvider', '$httpProvider', '$locationProvider',
         function ($routeProvider, $httpProvider, $locationProvider) {
             $routeProvider.

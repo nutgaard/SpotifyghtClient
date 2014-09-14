@@ -92,7 +92,7 @@ module.exports = function (grunt) {
                 tasks: ['jshint:dev']
             },
             sass: {
-                files: '<%= compass.dev.options.sassDir %>'+'/**/*.scss',
+                files: '<%= config.dev.resources %>'+'/**/*.scss',
                 tasks: ['compass']
             }
         }

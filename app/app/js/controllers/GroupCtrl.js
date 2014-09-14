@@ -7,8 +7,6 @@
                 console.log("loaded group");
                 var loadTracks = function () {
                     Track.index({groupId: $routeParams.groupId}, function(tracks, response) {
-                        console.log(tracks);
-                        console.log(response);
                         $scope.tracks = tracks.scores;
                     });
                 };
@@ -56,5 +54,4 @@
                 loadTracks();
             }
         ]);
-
 })();

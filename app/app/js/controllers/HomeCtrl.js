@@ -8,5 +8,4 @@
                 console.log("loaded home");
             }
         ]);
-
 })();

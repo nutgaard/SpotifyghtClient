@@ -1,12 +1,5 @@
-@import "compass";
-
-$dark: #262626;
-$grey: #999999;
-$light: #FFFFFF;
-$highlightYellow: #EBD411;
-$highlightOrange: #FF6000;
-$highlightRed: #F25555;
-$highlightGreen: #648F00;
+@import 'colors';
+@import "../components/searchspotify/searchSpotify";
 
 * {
   box-sizing: border-box;
