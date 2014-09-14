@@ -8,3 +8,4 @@ app/www
 .sass-cache/
 .tmp/
 bower_components/
+app/app/css/*.css
