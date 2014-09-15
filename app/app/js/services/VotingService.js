@@ -18,6 +18,9 @@
             create: { method: 'POST' },
             vote: { method: 'POST', url: API_ENDPOINT + 'group/:groupId/:trackId/vote',
                     params: { groupId:'@groupId', trackId: '@trackId' }
+            },
+            delete: { method: 'DELETE', url: API_ENDPOINT + 'group/:groupId/:trackId',
+                params: { groupId:'@groupId', trackId: '@trackId' }
             }
         });
     }

@@ -2,5 +2,6 @@
 <section class="tracks">
     <section ng-repeat="track in tracks | orderBy:'score':true">
         <p>{{track}}</p><a ng-click="voteForTrack(track)" class="vote">Vote!</a>
+        <section class="track-actions"><a ng-click="voteForTrack(track)" class="vote">Vote!</a> | <a ng-click="deleteTrack($index)">Del</a></section>
     </section>
 </section>

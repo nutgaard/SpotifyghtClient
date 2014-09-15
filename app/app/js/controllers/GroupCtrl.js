@@ -40,6 +40,20 @@
                     loadTracks();
                 };
 
+                var deleteTrack = function (trackIndex) {
+                    console.log('delete');
+                    var track = $scope.tracks[trackIndex];
+                    console.log(track);
+                    Track.delete({groupId: $routeParams.groupId, trackId: findTrackId(track.id)},
+                            function(result, response) {
+                                console.log(result);
+                                console.log(response);
+                                $scope.tracks.splice(trackIndex, 1);
+                            }
+                    );
+                };
+                $scope.deleteTrack = deleteTrack;
+
                 socket.on('songadded', newSongCallback);
 
                 socket.on('change:vote', updateVote);
