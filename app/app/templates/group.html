@@ -1,7 +1,13 @@
 <search-spotify></search-spotify>
 <section class="tracks">
-    <section ng-repeat="track in tracks | orderBy:'score':true">
-        <p>{{track}}</p><a ng-click="voteForTrack(track)" class="vote">Vote!</a>
+    <section class="trackheader">
+        <span class="trackheader trackname">TRACK</span>
+        <span class="trackheader trackartist">ARTIST</span>
+        <span class="trackheader trackalbum">ALBUM</span>
+        <section class="track" ng-repeat="track in tracks | orderBy:'score':true">
+            ({{track.score}}) <span>{{trackData[track.id].name}}</span> | <span>{{trackData[track.id].artist[0].name}}</span> | <span>{{trackData[track.id].album.name}}</span>
         <section class="track-actions"><a ng-click="voteForTrack(track)" class="vote">Vote!</a> | <a ng-click="deleteTrack($index)">Del</a></section>
     </section>
+    </section>
+
 </section>

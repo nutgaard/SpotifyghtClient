@@ -6,10 +6,25 @@
   box-sizing: border-box;
   font-family: 'Montserrat', sans-serif;
 }
+
 body,html {
   width: 100%;
   height: 100%;
 }
+.trackheader {
+  width: 100%;
+  max-width: 720px;
+}
+.trackheader .trackname {
+  width: 60%;
+}
+.track-actions {
+  color: $grey;
+}
+.track:hover {
+  color: $highlightGreen;
+}
+
 body {
   background-color: $dark;
   color: $light;    

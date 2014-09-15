@@ -4,15 +4,9 @@
     angular.module('spotifyghtAppControllers')
         .controller('GroupCtrl', ['$scope', '$routeParams', '$location', 'Group', 'Track', 'socket', 'SpotifyWebAPI',
             function($scope, $routeParams, $location, Group, Track, socket, SpotifyWebAPI) {
-                console.log("loaded group");
                 var loadTracks = function () {
                     Track.index({groupId: $routeParams.groupId}, function(tracks, response) {
-                        var trackIds = _.map(tracks.scores, function (t) { return findTrackId(t); });
-                        console.log(trackIds);
-                        SpotifyWebAPI.getTracks(trackIds).then(function(data, info) {
-                            console.log(data);
-                            console.log(info);
-                        });
+                        loadTrackInfo(tracks.scores);
                         $scope.tracks = tracks.scores;
                     });
                 };
@@ -84,6 +78,31 @@
                     return str;
                 }
 
+                function loadTrackInfo(tracks) {
+                    var trackIds = _.map(tracks, function (t) { return findTrackId(t); });
+                    console.log(trackIds);
+                    SpotifyWebAPI.getTracks(trackIds).then(function(data) {
+                        console.log(data);
+                        var pickProps = ['id', 'uri', 'name', 'popularity', 'duration_ms'];
+                        var albumProps = ['name', 'uri', 'images', 'type'];
+                        var artistProps = ['name', 'uri', 'type'];
+                        var filtered = {};
+
+                        angular.forEach(data.tracks, function(obj, index) {
+                            var pick = _.pick(obj, pickProps);
+                            pick['album'] = _.pick(obj.album, albumProps);
+                            pick['artist'] = [];
+                            angular.forEach(obj.artists, function (art) {
+                                pick['artist'].push(_.pick(art, artistProps));
+                            });
+                            filtered[pick.uri] = pick;
+                        });
+                        $scope.trackData = filtered;
+                        $scope.$apply();
+                        console.log('after filter');
+                        console.log(filtered);
+                    });
+                }
                 var voteForTrack = function(track) {
                     var trackid = findTrackId(track);
                     Track.vote({groupId: $routeParams.groupId, trackId: trackid}, function(result, response) {
