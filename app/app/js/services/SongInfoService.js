@@ -60,8 +60,8 @@
                         });
                         songCache = $.extend(songCache, filtered);
 
-                        localStorage.SongCache = angular.toJson(songCache);
                         callback(songCache);
+                        localStorage.SongCache = angular.toJson(songCache);
 
                     });
                 };
