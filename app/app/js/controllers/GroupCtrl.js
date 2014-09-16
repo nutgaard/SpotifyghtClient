@@ -7,17 +7,22 @@
                 var loadTracks = function () {
                     Track.index({groupId: $routeParams.groupId}, function(tracks, response) {
                         SongData.loadTrackInfo(tracks.scores, function(songData) {
+
                             $scope.trackData = songData;
                             $scope.tracks = tracks.scores;
-//                            $scope.$apply();
+
                         });
                     });
                 };
 
                 var newSongCallback = function (data) {
-                    console.log("newsong");
-                    console.log(data);
-                    loadTracks();
+                    loadTrackInfo(data, function(songData) {
+                        $scope.trackData = songData;
+
+                        $scope.$apply(function() {
+                            $scope.tracks.push(data);
+                        });
+                    });
                 };
 
                 var updateVote = function(trackVote) {
@@ -68,16 +73,6 @@
                 var findTrackId = SongData.findTrackId;
 
                 var loadTrackInfo = SongData.loadTrackInfo;
-
-                $scope.addTrack = addTrack;
-
-                function addTrack(uri) {
-                    var newTrack = new Track({uri: uri});
-                    newTrack.$create({groupId: $routeParams.groupId}, function (t, postResponseHeaders) {
-                        loadTrackInfo(t);
-                        $scope.tracks.push(t);
-                    });
-                }
 
                 var voteForTrack = function(track) {
                     var trackid = findTrackId(track);
