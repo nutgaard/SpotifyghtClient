@@ -2,11 +2,16 @@
     'use strict';
 
     angular.module('spotifyghtAppControllers')
-        .controller('GroupCtrl', ['$scope', '$routeParams', '$location', 'Group', 'Track', 'socket', 'SpotifyWebAPI',
-            function($scope, $routeParams, $location, Group, Track, socket, SpotifyWebAPI) {
+        .controller('GroupCtrl', ['$scope', '$routeParams', '$location', 'Group', 'Track', 'socket', 'SpotifyWebAPI', 'SongData',
+            function($scope, $routeParams, $location, Group, Track, socket, SpotifyWebAPI, SongData) {
                 var loadTracks = function () {
                     Track.index({groupId: $routeParams.groupId}, function(tracks, response) {
-                        loadTrackInfo(tracks.scores);
+                        SongData.loadTrackInfo(tracks.scores, function(songData) {
+                            console.log('callback songdata');
+                            console.log(songData);
+                            $scope.trackData = songData;
+                            $scope.$apply();
+                        });
                         $scope.tracks = tracks.scores;
                     });
                 };
@@ -65,56 +70,9 @@
                     console.log(data);
                 });
 
-                function findTrackId(track) {
-                    var str = track;
-                    if(track.hasOwnProperty('id')) {
-                        str = track.id;
-                    }
-                    if(track.hasOwnProperty('uri')) {
-                        str = track.uri;
-                    }
-                    if(str.indexOf('spotify:track:') === -1) {
-                        return str;
-                    } else {
-                        return str.split('spotify:track:')[1];
-                    }
-                    return str;
-                }
+                var findTrackId = SongData.findTrackId;
 
-                function loadTrackInfo(tracks) {
-                    var trackIds = [];
-
-                    if(Array.isArray(tracks)) {
-                        trackIds = _.map(tracks, function (t) { return findTrackId(t); });
-                    } else {
-                        trackIds.push(findTrackId(tracks));
-                    }
-
-                    console.log(trackIds);
-                    SpotifyWebAPI.getTracks(trackIds).then(function(data) {
-                        console.log(data);
-                        var pickProps = ['id', 'uri', 'name', 'popularity', 'duration_ms'];
-                        var albumProps = ['name', 'uri', 'images', 'type'];
-                        var artistProps = ['name', 'uri', 'type'];
-                        var filtered = {};
-
-                        angular.forEach(data.tracks, function(obj, index) {
-                            var pick = _.pick(obj, pickProps);
-                            pick['album'] = _.pick(obj.album, albumProps);
-                            pick['artist'] = [];
-                            angular.forEach(obj.artists, function (art) {
-                                pick['artist'].push(_.pick(art, artistProps));
-                            });
-                            filtered[pick.uri] = pick;
-                        });
-                        $scope.trackData = $.extend($scope.trackData, filtered);
-
-                        $scope.$apply();
-                        console.log('after filter');
-                        console.log($scope.trackData);
-
-                    });
-                }
+                var loadTrackInfo = SongData.loadTrackInfo;
 
                 $scope.addTrack = addTrack;
 
