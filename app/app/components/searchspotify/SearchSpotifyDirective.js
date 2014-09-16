@@ -15,6 +15,7 @@
                     $scope.search = '';
                     $scope.results = [];
                     $scope.selected = 0;
+                    $scope.dropdownVisible = false;
 
                     $scope.keyevent = function(e) {
                         if (typeof keymap[e.keyCode] !== 'undefined') {
@@ -28,10 +29,20 @@
                         newTrack.$create({groupId: $routeParams.groupId}, function() {
                             $scope.selected = 0;
                             $scope.results = [];
+                            $scope.dropdownVisible = false;
                         });
                     };
+                    $scope.hover = function(index) {
+                        $scope.selected = index;
+                    };
+                    $scope.showDropdown = function(){
+                        $scope.dropdownVisible = true;
+                    };
+                    $scope.isDropdownVisible = function() {
+                        return $scope.dropdownVisible && $scope.results.length > 0;
+                    }
                     var fetchResults = function() {
-                        if ($scope.search.length === 0) {
+                        if ($scope.search.length < 3) {
                             $scope.results = [];
                             return;
                         }
@@ -39,6 +50,7 @@
                                 .then(function(data) {
                                     $scope.results = data.tracks.items;
                                     $scope.selected = 0;
+                                    $scope.dropdownVisible = true;
                                     $scope.$apply();
                                 });
                     };
@@ -57,6 +69,9 @@
                         },
                         13: function(e) {
                             $scope.selectTrack($scope.results[$scope.selected]);
+                        },
+                        27: function() {
+                            $scope.dropdownVisible = false;
                         }
                     };
                     $scope.updateResults = _.debounce(fetchResults, 300);

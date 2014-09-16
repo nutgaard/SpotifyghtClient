@@ -1,7 +1,24 @@
 // see: https://spotify.app.box.com/s/x8zbmllixjqbewbwitqy
-$dark: #262626;
-$grey: rgb(130, 130, 130);
-$light: #FFFFFF;
+@import 'compass';
+
+//Gradients
+$gradientGreenTop: rgb(180, 213, 0);
+$gradientGreenBottom: rgb(216, 175, 0);
+
+$gradientBlackTop: rgb(90, 90, 90);
+$gradientBlackBottom: rgb(30, 30, 30);
+
+$gradientGreyTop: rgb(170, 170, 170);
+$gradientGreyBottom: rgb(130, 130, 130);
+
+$gradientSandTop: rgb(242, 241, 239);
+$gradientSandBottom: rgb(222, 219, 219);
+
+
+//Colors
+$dark: $gradientBlackBottom;
+$grey: $gradientGreyBottom;
+$light: $gradientSandTop;
 $sand: rgb(236, 235, 232);
 $highlightYellow: #EBD411;
 $highlightOrange: #FF6000;

@@ -1,14 +1,12 @@
 @import '../../sass/mixins';
-@import "compass";
-
 search-spotify {
     width: 100%;
     display: block;
 
     div {
         width: 100%;
-        padding: 0px 10px;
-        
+        position: relative;
+
         input {
             height: 1.6rem;   
             width: 100%;
@@ -25,16 +23,19 @@ search-spotify {
             }
         }
         ul {
-            padding: 0px 8px 0px 8px;
-            margin-top: 0px;
+            width: 100%;
+            padding: 8px 7px;
+            margin-top: 2px;
+            position: absolute;
+            background-color: $gradientBlackBottom;
             li {
-              list-style-type: none;
-              padding-top: 3px;
-              padding-bottom: 2px;
-              &.selected {
-                background-color: $grey;
-                color: $highlightGreen;
-              }
+                padding: 0.3rem 0rem 1.4rem 0.3rem;
+                list-style-type: none;
+
+                &.selected {
+                    background-color: $gradientBlackTop;
+                    color: $highlightGreen;
+                }
             }
         }
     }

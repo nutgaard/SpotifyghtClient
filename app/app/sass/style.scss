@@ -4,6 +4,7 @@
 @import "group";
 
 *, *:before, *:after {
+    @include box-sizing(border-box);
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-family: $font-family;
@@ -11,18 +12,20 @@
 }
 
 body {
-  background-color: $dark;
-  color: $light;
+    color: $light;
+    @include background-image(linear-gradient($gradientBlackBottom, $gradientBlackTop));    
+    background-attachment: fixed;
 }
 
 body,html {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
+
   outline: none;
 }

@@ -1,7 +1,7 @@
 <div>
-    <input type="text" id="search" placeholder="Search" ng-model="search" ng-change="updateResults()" ng-keydown="keyevent($event)" autofocus>
-    <ul>
-        <li ng-repeat="result in results" ng-class="{selected: $index === selected}" ng-click="selectTrack(result)">
+    <input type="text" id="search" placeholder="Search" ng-model="search" ng-change="updateResults()" ng-keydown="keyevent($event)" ng-focus="showDropdown()" autofocus>
+    <ul ng-show="isDropdownVisible()">
+        <li ng-repeat="result in results" ng-class="{selected: $index === selected}" ng-click="selectTrack(result)" ng-mouseover="hover($index)">
             {{result.name}}
         </li>
     </ul>
