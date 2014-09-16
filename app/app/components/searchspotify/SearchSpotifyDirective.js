@@ -1,7 +1,7 @@
 (function() {
     "use strict";
     angular.module('spotifyghtComponents')
-            .directive('searchSpotify', [ '$routeParams', function($routeParams) {
+            .directive('searchSpotify', ['$routeParams', function($routeParams) {
                     return {
                         restrict: 'E',
                         templateUrl: 'components/searchspotify/search.html',
@@ -12,21 +12,22 @@
                     };
                 }])
             .controller('SearchSpotifyCtrl', ['$scope', 'SpotifyWebAPI', 'Track', '$routeParams', function($scope, spotifyApi, Track, $routeParams) {
-                    $scope.search = 'tore tan';
+                    $scope.search = '';
                     $scope.results = [];
-                    $scope.selected = 2;
+                    $scope.selected = 0;
 
                     $scope.keyevent = function(e) {
                         if (typeof keymap[e.keyCode] !== 'undefined') {
                             keymap[e.keyCode](e);
                         }
                     };
-                    $scope.selectTrack = function(track){
+                    $scope.selectTrack = function(track) {
                         var uri = track.uri;
+
                         var newTrack = new Track({uri: uri});
-                        console.log('groupId: ' + $routeParams.groupId);
-                        newTrack.$create({groupId: $routeParams.groupId}, function(){
-                            console.log('track callback', arguments);
+                        newTrack.$create({groupId: $routeParams.groupId}, function() {
+                            $scope.selected = 0;
+                            $scope.results = [];
                         });
                     };
                     var fetchResults = function() {
