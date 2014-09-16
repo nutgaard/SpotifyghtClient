@@ -11,10 +11,11 @@
         <section class="tracks">
             <section class="track" ng-repeat="track in tracks | orderBy:'score':true">
                 <div class="pure-g">
-                    <div class="pure-u-1-24 score">({{track.score}})</div>
-                    <div class="pure-u-15-24">{{trackData[track.id].name}}</div>
-                    <div class="pure-u-6-24">{{trackData[track.id].artist[0].name}}</div>
-                    <div class="pure-u-2-24">{{trackData[track.id].album.name}}</div>
+                    <div class="pure-u-1-24 pure-u-sm-1-24 score">({{track.score}})</div>
+                    <div class="pure-u-23-24 pure-u-sm-15-24">{{trackData[track.id].name}}</div>
+                    <div class="pure-u-1-24"></div>
+                    <div class="pure-u-12-24 pure-u-sm-4-24">{{trackData[track.id].artist[0].name}}</div>
+                    <div class="pure-u-12-24 pure-u-sm-3-24">{{trackData[track.id].album.name}}</div>
                 </div>
 
                 <section class="track-actions">
