@@ -120,7 +120,7 @@
 
                 function addTrack(uri) {
                     var newTrack = new Track({uri: uri});
-                    Track.$create(function (t, postResponseHeaders) {
+                    newTrack.$create({groupId: $routeParams.groupId}, function (t, postResponseHeaders) {
                         loadTrackInfo(t);
                         $scope.tracks.push(t);
                     });
