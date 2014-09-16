@@ -31,7 +31,10 @@
 
                 var trackDeleted = function(data) {
                     console.log('deleted: ' + data);
-                    loadTracks();
+                    var index = _.findIndex($scope.tracks, { 'id': data.id });
+                    if(index > -1) {
+                        $scope.tracks.splice(index, 1);
+                    }
                 };
 
                 var deleteTrack = function (trackIndex) {
@@ -79,7 +82,14 @@
                 }
 
                 function loadTrackInfo(tracks) {
-                    var trackIds = _.map(tracks, function (t) { return findTrackId(t); });
+                    var trackIds = [];
+
+                    if(Array.isArray(tracks)) {
+                        trackIds = _.map(tracks, function (t) { return findTrackId(t); });
+                    } else {
+                        trackIds.push(findTrackId(tracks));
+                    }
+
                     console.log(trackIds);
                     SpotifyWebAPI.getTracks(trackIds).then(function(data) {
                         console.log(data);
@@ -97,12 +107,25 @@
                             });
                             filtered[pick.uri] = pick;
                         });
-                        $scope.trackData = filtered;
+                        $scope.trackData = $.extend($scope.trackData, filtered);
+
                         $scope.$apply();
                         console.log('after filter');
-                        console.log(filtered);
+                        console.log($scope.trackData);
+
                     });
                 }
+
+                $scope.addTrack = addTrack;
+
+                function addTrack(uri) {
+                    var newTrack = new Track({uri: uri});
+                    Track.$create(function (t, postResponseHeaders) {
+                        loadTrackInfo(t);
+                        $scope.tracks.push(t);
+                    });
+                }
+
                 var voteForTrack = function(track) {
                     var trackid = findTrackId(track);
                     Track.vote({groupId: $routeParams.groupId, trackId: trackid}, function(result, response) {
