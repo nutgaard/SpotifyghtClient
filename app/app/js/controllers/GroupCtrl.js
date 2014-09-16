@@ -7,12 +7,10 @@
                 var loadTracks = function () {
                     Track.index({groupId: $routeParams.groupId}, function(tracks, response) {
                         SongData.loadTrackInfo(tracks.scores, function(songData) {
-                            console.log('callback songdata');
-                            console.log(songData);
                             $scope.trackData = songData;
-                            $scope.$apply();
+                            $scope.tracks = tracks.scores;
+//                            $scope.$apply();
                         });
-                        $scope.tracks = tracks.scores;
                     });
                 };
 
@@ -21,6 +19,7 @@
                     console.log(data);
                     loadTracks();
                 };
+
                 var updateVote = function(trackVote) {
                     if(!trackVote.hasOwnProperty('id')) {
                         return;
@@ -29,8 +28,6 @@
                         return;
                     }
                     var found = _.find($scope.tracks, { 'id': trackVote.id });
-                    console.log('found');
-                    console.log(found);
                     found.score = parseInt(trackVote.score);
                 };
 
@@ -48,8 +45,6 @@
                     console.log(track);
                     Track.delete({groupId: $routeParams.groupId, trackId: findTrackId(track.id)},
                             function(result, response) {
-                                console.log(result);
-                                console.log(response);
                                 $scope.tracks.splice(trackIndex, 1);
                             }
                     );
@@ -87,8 +82,6 @@
                 var voteForTrack = function(track) {
                     var trackid = findTrackId(track);
                     Track.vote({groupId: $routeParams.groupId, trackId: trackid}, function(result, response) {
-                        console.log(result);
-                        console.log(response);
                         track.score = parseInt(result.score);
                     });
 

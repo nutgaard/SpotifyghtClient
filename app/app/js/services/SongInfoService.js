@@ -11,10 +11,17 @@
             function (SpotifyWebAPI, SPOTIFY_TRACK_PREFIX) {
                 var songCache = {};
 
-                console.log('SongData service');
+                try {
+                    if(localStorage.hasOwnProperty('SongCache')) {
+                        songCache = angular.fromJson(localStorage.SongCache);
+                    }
+                } catch (err) {
+                    songCache = {};
+                    console.error('error loading SongCache from localStorage', err);
+                }
+
                 var loadTrackInfo = function (tracks, callback) {
                     var trackIds = [];
-                    console.log('loadTrackInfo');
 
                     if (Array.isArray(tracks)) {
                         trackIds = _.map(tracks, function (t) {
@@ -30,9 +37,9 @@
                     trackIds = tmp;
 
                     console.log('Gonna load ids for web: ' + trackIds.length);
-                    console.log(trackIds);
 
                     if (trackIds.length < 1) {
+                        callback(songCache);
                         return;
                     }
 
@@ -53,6 +60,7 @@
                         });
                         songCache = $.extend(songCache, filtered);
 
+                        localStorage.SongCache = angular.toJson(songCache);
                         callback(songCache);
 
                     });
