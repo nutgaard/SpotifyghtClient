@@ -4,10 +4,11 @@
 search-spotify {
     width: 100%;
     display: block;
-    
+
     div {
         width: 100%;
         padding: 0px 10px;
+        
         input {
             height: 1.6rem;   
             width: 100%;
@@ -24,8 +25,13 @@ search-spotify {
             }
         }
         ul {
+            padding: 0px 8px 0px 8px;
+            margin-top: 0px;
             li {
-
+                list-style-type: none;
+                &.selected {
+                    background-color: #d0d0d0;
+                }
             }
         }
     }
