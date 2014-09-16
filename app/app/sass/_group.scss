@@ -1,0 +1,61 @@
+@import 'colors';
+@import 'fonts';
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.trackheader {
+  color: $grey;
+  text-align: center;
+}
+.track-actions {
+  color: $grey;
+}
+.track:first-child {
+  padding-top: 1px;
+}
+
+.track {
+  padding-top: 5px;
+}
+.track:hover {
+  color: $highlightGreen;
+}
+
+.score {
+  font-size: 10px;
+  color: $grey;
+  padding: 3px;
+}
+
+.deleteTrack:hover {
+  color: $highlightRed;
+}
+.deleteTrack {
+  text-align: right;
+  font-size: 0.5rem;
+}
+
+.vote:hover {
+  color: white;
+}
+.vote {
+  font-size: 12px;
+  padding-left: 1px;
+  color: $grey;
+  text-align: left;
+  @include user-select(none);
+}
+
+/*
+When setting the primary font stack, apply it to the Pure grid units along
+with `html`, `button`, `input`, `select`, and `textarea`. Pure Grids use
+specific font stacks to ensure the greatest OS/browser compatibility.
+*/
+html, button, input, select, textarea,
+.pure-g [class *= "pure-u"] {
+  /* Set your content font stack here: */
+  font-family: $font-family;
+}

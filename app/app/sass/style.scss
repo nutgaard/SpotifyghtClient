@@ -1,10 +1,12 @@
 @import 'colors';
+@import 'fonts';
 @import "../components/searchspotify/searchSpotify";
+@import "group";
 
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: $font-family;
   font-size: 12px;
 }
 
@@ -12,76 +14,15 @@ body {
   background-color: $dark;
   color: $light;
 }
-.container {
-  max-width: 720px;
-  margin: 0 auto;
 
-}
 body,html {
   width: 100%;
   height: 100%;
-}
-.trackslist {
-}
-.trackheader {
-  color: $grey;
-  text-align: center;
-
-}
-.track-actions {
-  color: $grey;
-}
-.track:first-child {
-  padding-top: 1px;
-}
-
-.track {
-  padding-top: 5px;
-}
-.track:hover {
-  color: $highlightGreen;
-}
-
-.score {
-  font-size: 10px;
-  color: $grey;
-  padding: 3px;
-}
-
-.deleteTrack:hover {
-  color: $highlightRed;
-}
-.deleteTrack {
-  text-align: right;
-  font-size: 0.5rem;
-}
-
-.vote:hover {
-  color: white;
-}
-.vote {
-  font-size: 12px;
-  padding-left: 1px;
-  color: $grey;
-  text-align: left;
-  @include user-select(none);
 }
 
 input:focus,
 select:focus,
 textarea:focus,
 button:focus {
-    outline: none;
-}
-
-/*
-When setting the primary font stack, apply it to the Pure grid units along
-with `html`, `button`, `input`, `select`, and `textarea`. Pure Grids use
-specific font stacks to ensure the greatest OS/browser compatibility.
-*/
-html, button, input, select, textarea,
-.pure-g [class *= "pure-u"] {
-  /* Set your content font stack here: */
-  font-family: 'Montserrat', sans-serif;
-
+  outline: none;
 }
