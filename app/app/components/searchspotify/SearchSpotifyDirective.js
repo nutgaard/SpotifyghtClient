@@ -1,7 +1,7 @@
 (function() {
     "use strict";
     angular.module('spotifyghtComponents')
-            .directive('searchSpotify', [function() {
+            .directive('searchSpotify', [ '$routeParams', function($routeParams) {
                     return {
                         restrict: 'E',
                         templateUrl: 'components/searchspotify/search.html',
@@ -11,9 +11,7 @@
                         }
                     };
                 }])
-            .controller('SearchSpotifyCtrl', ['$scope', 'SpotifyWebAPI', 'Track', function($scope, spotifyApi, Track) {
-                    console.log(Track.index());
-                    console.log(spotifyApi);
+            .controller('SearchSpotifyCtrl', ['$scope', 'SpotifyWebAPI', 'Track', '$routeParams', function($scope, spotifyApi, Track, $routeParams) {
                     $scope.search = 'tore tan';
                     $scope.results = [];
                     $scope.selected = 2;
@@ -22,6 +20,14 @@
                         if (typeof keymap[e.keyCode] !== 'undefined') {
                             keymap[e.keyCode](e);
                         }
+                    };
+                    $scope.selectTrack = function(track){
+                        var uri = track.uri;
+                        var track = new Track({uri: uri});
+                        console.log('groupId: ' + $routeParams.groupId);
+                        track.$create({groupId: $routeParams.groupId}, function(){
+                            console.log('track callback', arguments);
+                        });
                     };
                     var fetchResults = function() {
                         if ($scope.search.length === 0) {
@@ -49,7 +55,7 @@
                             e.preventDefault();
                         },
                         13: function(e) {
-                            console.log('submit');
+                            $scope.selectTrack($scope.results[$scope.selected]);
                         }
                     };
                     $scope.updateResults = _.debounce(fetchResults, 300);

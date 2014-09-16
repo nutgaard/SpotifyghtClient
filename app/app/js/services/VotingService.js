@@ -12,7 +12,7 @@
     ]);
 
     // body: { "uri": "spotify:track:0iTlGLAhCU7jojPx7zh4ap" }
-    votingservices.factory('Track', ['$resource', '$routeParams', 'API_ENDPOINT', function ($resource, $routeParams, API_ENDPOINT) {
+    votingservices.factory('Track', ['$resource', 'API_ENDPOINT', function ($resource, API_ENDPOINT) {
         return $resource(API_ENDPOINT + 'group/:groupId/tracks', {}, {
             index: { method: 'GET' },
             create: { method: 'POST' },

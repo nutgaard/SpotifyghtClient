@@ -1,7 +1,7 @@
 <div>
     <input type="text" id="search" placeholder="Search" ng-model="search" ng-change="updateResults()" ng-keydown="keyevent($event)">
     <ul>
-        <li ng-repeat="result in results" ng-class="{selected: $index === selected}">
+        <li ng-repeat="result in results" ng-class="{selected: $index === selected}" ng-click="selectTrack(result)">
             {{result.name}}
         </li>
     </ul>
