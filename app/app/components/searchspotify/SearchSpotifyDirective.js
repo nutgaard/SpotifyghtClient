@@ -23,9 +23,9 @@
                     };
                     $scope.selectTrack = function(track){
                         var uri = track.uri;
-                        var track = new Track({uri: uri});
+                        var newTrack = new Track({uri: uri});
                         console.log('groupId: ' + $routeParams.groupId);
-                        track.$create({groupId: $routeParams.groupId}, function(){
+                        newTrack.$create({groupId: $routeParams.groupId}, function(){
                             console.log('track callback', arguments);
                         });
                     };
