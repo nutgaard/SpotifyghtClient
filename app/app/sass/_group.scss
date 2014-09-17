@@ -20,15 +20,22 @@
 }
 .track:first-child {
   padding-top: 1px;
+  border-top: 1px;
+  border-top-color: $greyOpaque;
+  border-top-style: solid;
 }
 
 .track {
   padding-top: 5px;
+  border-bottom: 1px;
+  border-bottom-color: $greyOpaque;
+  border-bottom-style: solid;
+  height: 2.7rem;
 }
-//.track:hover {
-//  color: $highlightGreen;
+.track:hover {
+  color: $highlightGreen;
 //  @include background-image(linear-gradient($gradientBlackTop, $gradientBlackBottom));
-//}
+}
 
 .score {
   font-size: 10px;
