@@ -12,9 +12,10 @@
 }
 
 body {
-    color: $light;
-    @include background-image(linear-gradient($gradientBlackBottom, $gradientBlackTop));    
-    background-attachment: fixed;
+  color: $light;
+  background-color: black;
+  //    @include background-image(linear-gradient($gradientBlackBottom, $gradientBlackTop));
+  //    background-attachment: fixed;
 }
 
 body,html {

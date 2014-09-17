@@ -1,42 +1,49 @@
 @import '../../sass/mixins';
+
 search-spotify {
+  width: 100%;
+  display: block;
+  div {
     width: 100%;
-    display: block;
+    position: relative;
+    background-color: #000000;
+    z-index: 99;
 
-    div {
-        width: 100%;
-        position: relative;
+    input {
+      height: 1.6rem;
+      width: 100%;
+      //            @include border-radius(15px);
+      padding: 6px 15px 6px 30px;
+      background-color: #fcfcfc;
+      border: 1px solid #d0d0d0;
 
-        input {
-            height: 1.6rem;   
-            width: 100%;
-            @include border-radius(15px);
-            padding: 6px 15px 6px 30px;
-            background-color: #fcfcfc;
-            border: 1px solid #d0d0d0;
-
-            &:focus {
-                background-color: $light;
-            }
-            @include input-placeholder {
-                color: #bcbcbc;
-            }
-        }
-        ul {
-            width: 100%;
-            padding: 8px 7px;
-            margin-top: 2px;
-            position: absolute;
-            background-color: $gradientBlackBottom;
-            li {
-                padding: 0.3rem 0rem 1.4rem 0.3rem;
-                list-style-type: none;
-
-                &.selected {
-                    background-color: $gradientBlackTop;
-                    color: $highlightGreen;
-                }
-            }
-        }
+      &:focus {
+        background-color: $light;
+      }
+      @include input-placeholder {
+        color: #bcbcbc;
+      }
     }
+    ul {
+      width: 100%;
+      padding: 8px 7px;
+      margin-top: 2px;
+      position: absolute;
+      background-color: $gradientBlackBottom;
+      li {
+        padding: 0.3rem 0rem 0.6rem 0.3rem;
+        list-style-type: none;
+        section {
+          &.dd-artist {
+            color: $grey;
+
+          }
+        }
+        &.selected {
+          background-color: $gradientBlackTop;
+          color: $highlightGreen;
+        }
+      }
+    }
+  }
 }

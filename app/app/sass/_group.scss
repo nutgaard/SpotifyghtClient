@@ -6,9 +6,14 @@
   margin: 0 auto;
 }
 
+.trackslist {
+//  @include background-image(linear-gradient($gradientGreenTop, $gradientGreenBottom));
+//  background-attachment: fixed;
+  background-color: black;
+}
 .trackheader {
   color: $grey;
-  text-align: center;
+  text-align: left;
 }
 .track-actions {
   color: $grey;
@@ -20,9 +25,10 @@
 .track {
   padding-top: 5px;
 }
-.track:hover {
-  color: $highlightGreen;
-}
+//.track:hover {
+//  color: $highlightGreen;
+//  @include background-image(linear-gradient($gradientBlackTop, $gradientBlackBottom));
+//}
 
 .score {
   font-size: 10px;
@@ -48,6 +54,25 @@
   text-align: left;
   @include user-select(none);
 }
+
+/* SHADOW/GLOW TRANSITIONS */
+/* Glow */
+.glow {
+//  display: inline-block;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transition-property: box-shadow;
+  transition-property: box-shadow;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+}
+
+.glow:hover, .glow:focus, .glow:active {
+  box-shadow: 0 0 5px rgba(200, 200, 200, 0.6);
+  color: $highlightGreen;
+}
+
 
 /*
 When setting the primary font stack, apply it to the Pure grid units along

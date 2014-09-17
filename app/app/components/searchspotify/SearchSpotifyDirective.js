@@ -40,7 +40,7 @@
                     };
                     $scope.isDropdownVisible = function() {
                         return $scope.dropdownVisible && $scope.results.length > 0;
-                    }
+                    };
                     var fetchResults = function() {
                         if ($scope.search.length < 3) {
                             $scope.results = [];
