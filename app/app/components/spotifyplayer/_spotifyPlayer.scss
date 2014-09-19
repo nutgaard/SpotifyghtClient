@@ -1,0 +1,47 @@
+@import '../../sass/mixins';
+
+
+spotify-player {
+  $playbuttonPanelSize: 120px;
+  $playbuttonRelativeSize: 66%;
+  $playbuttonSize: 20px;
+
+  width: 100%;
+  display: block;
+  height: $playbuttonPanelSize;
+
+  .playbuttonpanel {
+    float: left;
+    position: relative;
+//    background-color: $highlightGreen;
+    width: $playbuttonPanelSize;
+    height: 100%;
+
+    .playbutton {
+      position: absolute;
+      width: $playbuttonRelativeSize;
+      height: $playbuttonRelativeSize;
+      left: (100%-$playbuttonRelativeSize)/2;
+      top: (100%-$playbuttonRelativeSize)/2;
+      border: 3px solid $highlightGreen;
+
+      @include background-image(linear-gradient($gradientGreyTop, $gradientGreyBottom));
+      &:hover {
+        @include background-image(linear-gradient($gradientSandTop, $gradientGreyBottom));
+      }
+      &:active {
+        @include background-image(linear-gradient($gradientGreyBottom, $gradientSandTop));
+      }
+      @include border-radius(100%);
+
+      .arrow {
+        margin-left: 33px;
+        margin-top: 18px;
+        @include arrow-right($playbuttonSize, black);
+      }
+    }
+  }
+  .statuspanel {
+    color: #FFF;
+  }
+}

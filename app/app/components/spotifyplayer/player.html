@@ -1,0 +1,19 @@
+<div class="playbuttonpanel">
+    <div class="playbutton">
+        <div class="arrow"></div>
+    </div>
+</div>
+<div class="statuspanel">
+    <div class="informationpanel">
+        <section>
+            <span ng-show="isplaying()">Now playing</span>
+            <span ng-hide="isplaying()">Player paused</span>
+        </section>
+        <section ng-show="isplaying()">
+            <span>{{song}} - {{artist}}</span>
+            <span>{{album}}</span>
+        </section>
+    </div>
+    <div class="playbar"></div>
+</div>
+

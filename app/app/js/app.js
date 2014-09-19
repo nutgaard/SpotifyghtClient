@@ -13,7 +13,8 @@
         'SocketService',
         'SongDataService'
     ])
-        .constant('API_ENDPOINT', 'http://10.0.1.2:3001/')
+        //.constant('API_ENDPOINT', 'http://10.0.1.2:3001/')
+	.constant('API_ENDPOINT', 'http://localhost:3001/')
         .constant('SPOTIFY_TRACK_PREFIX', 'spotify:track:');
 
     // instantiate module
