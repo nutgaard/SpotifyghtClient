@@ -1,0 +1,19 @@
+.homescreen {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-top: 20%;
+  paper-input {
+    color: white;
+    margin: 0 auto;
+    &.core-selected {
+      color: white;
+    }
+    &::shadow {
+      color: white;
+      input {
+        color: white;
+      }
+
+    }
+  }
+}

@@ -2,6 +2,7 @@
 @import 'fonts';
 @import "../components/searchspotify/searchSpotify";
 @import "group";
+@import 'home';
 
 *, *:before, *:after {
     @include box-sizing(border-box);

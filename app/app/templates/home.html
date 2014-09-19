@@ -1,2 +1,12 @@
-TESTAPP
-<h1>{{name}}</h1>
+<article class="homescreen">
+    <section class="welcome">
+        <h1 ng-hide="name">{{name}}</h1>
+    </section>
+
+    <section class="input" ng-show="name">
+        <form ng-submit="login()">
+            <paper-input name="username" label="Enter your name" floatingLabel="true" autofocus="true"></paper-input>
+            <input type="submit" hidden />
+        </form>
+    </section>
+</article>
