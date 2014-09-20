@@ -10,6 +10,9 @@
 
                             $scope.trackData = songData;
                             $scope.tracks = tracks.scores;
+                            if(!$scope.$$phase) {
+                                $scope.$apply();
+                            }
 
                         });
                     });
