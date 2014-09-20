@@ -2,18 +2,18 @@
   max-width: 720px;
   margin: 0 auto;
   padding-top: 20%;
-  paper-input {
+  label {
+//    margin: 0 auto;
+    color: #ffffff;
+  }
+  input {
     color: white;
     margin: 0 auto;
-    &.core-selected {
-      color: white;
-    }
-    &::shadow {
-      color: white;
-      input {
-        color: white;
-      }
-
+    border-bottom-color: #ffffff;
+    width: 100%;
+    max-width: 250px;
+    &:focus {
+      border-bottom-color: $highlightGreen;
     }
   }
 }

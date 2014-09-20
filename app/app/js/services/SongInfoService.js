@@ -5,19 +5,13 @@
     var albumProps = ['name', 'uri', 'images', 'type'];
     var artistProps = ['name', 'uri', 'type'];
 
-    var SongInfo = angular.module('SongDataService', ['SpotifyWebAPIService']);
+    var SongInfo = angular.module('SongDataService', ['SpotifyWebAPIService', 'LocalStoreService']);
 
-    SongInfo.factory('SongData', ['SpotifyWebAPI', 'SPOTIFY_TRACK_PREFIX',
-            function (SpotifyWebAPI, SPOTIFY_TRACK_PREFIX) {
-                var songCache = {};
-
-                try {
-                    if(localStorage.hasOwnProperty('SongCache')) {
-                        songCache = angular.fromJson(localStorage.SongCache);
-                    }
-                } catch (err) {
+    SongInfo.factory('SongData', ['SpotifyWebAPI', 'SPOTIFY_TRACK_PREFIX', 'LocalStorage',
+            function (SpotifyWebAPI, SPOTIFY_TRACK_PREFIX, LocalStorage) {
+                var songCache = LocalStorage.getKey('songCache');
+                if(!songCache) {
                     songCache = {};
-                    console.error('error loading SongCache from localStorage', err);
                 }
 
                 var loadTrackInfo = function (tracks, callback) {

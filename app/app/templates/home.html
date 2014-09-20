@@ -3,10 +3,12 @@
         <h1 ng-hide="name">{{name}}</h1>
     </section>
 
-    <section class="input" ng-show="name">
+    <section class="input" ng-hide="isloggedin">
         <form ng-submit="login()">
-            <paper-input name="username" label="Enter your name" floatingLabel="true" autofocus="true"></paper-input>
-            <input type="submit" hidden />
+            <material-input-group layout="vertical" layout-align="center center">
+                <label for="username">Enter your name</label>
+                <material-input id="username" ng-model="username" type="text" autofocus="true">
+            </material-input-group>
         </form>
     </section>
 </article>

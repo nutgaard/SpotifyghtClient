@@ -11,7 +11,9 @@
         'spotifyghtAppControllers',
         'SpotifyWebAPIService',
         'SocketService',
-        'SongDataService'
+        'SongDataService',
+        'LocalStoreService',
+        'ngMaterial'
     ])
         .constant('API_ENDPOINT', 'http://10.0.1.2:3001/')
         .constant('SPOTIFY_TRACK_PREFIX', 'spotify:track:');
