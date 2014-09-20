@@ -1,6 +1,5 @@
 @import '../../sass/mixins';
 
-
 spotify-player {
   $playbuttonPanelSize: 120px;
   $playbuttonRelativeSize: 66%;
@@ -9,12 +8,64 @@ spotify-player {
   width: 100%;
   display: block;
   height: $playbuttonPanelSize;
+  position: relative;
+
+  .csrfinput {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.8);
+
+    div {
+      margin: 0 auto;
+      width: 50%;
+      padding-top: 1rem;
+
+      * {
+        width: 100%;
+      }
+      p{
+        margin: 0px;
+      }
+      label {
+        font-size: 22px;
+      }
+      .grey {
+        color: $grey;
+      }
+      input {
+        width: 90%;
+        float: left;
+        height: 1.6rem;
+        border: 1px solid #d0d0d0;
+      }
+      a {
+        color: $gradientGreenBottom;
+      }
+      span {
+        display: inline-block;
+        width: 10%;
+        height: 1.6rem;
+        padding: 6px 0px 0px 8px;
+        background-color: $gradientGreenBottom;
+        color: $sand;
+
+        &:hover {
+          background-color: darken($gradientGreenBottom, 4);
+        }
+        &:active {
+          background-color: lighten($gradientGreenBottom, 4);
+        }
+      }
+    }
+  }
 
   .playbuttonpanel {
     @include user-select(none);
     float: left;
     position: relative;
-//    background-color: $highlightGreen;
+    //    background-color: $highlightGreen;
     width: $playbuttonPanelSize;
     height: 100%;
 
@@ -70,15 +121,10 @@ spotify-player {
       .songpanel {
         span {
           color: $grey;
-          &.big {
-            font-size: 22px;
-          }
         }
       }
-      .currentsongpanel {
-        span {
-          font-size: 22px;
-        }
+      .big {
+        font-size: 22px;
       }
       .currentalbumpanel {
         span {

@@ -1,10 +1,19 @@
+<div class="csrfinput" ng-show="showcsrf">
+    <div>
+        <p>
+            <label for="csrf">Your csrf token:</label>
+            <p class="grey">See <a href="https://github.com/nutgaard/SpotifyHttpJs/blob/master/README.md" target="_blank">here</a> for instructions.</p>
+        </p>
+        <input name="csrf" id="csrf" placeholder="token" ng-model="csrfToken"/><span ng-click="testCSRF(csrfToken)">GO</span>
+    </div>
+</div>
 <div class="playbuttonpanel">
     <div class="playbutton" ng-click="playpause()">
-        <div ng-show="isplaying()" class="arrow"></div>
-        <div ng-hide="isplaying()" class="pause">
+        <div ng-show="isplaying()" class="pause">
             <div></div>
             <div></div>
         </div>
+        <div ng-hide="isplaying()" class="arrow"></div>
     </div>
 </div>
 <div class="statuspanel">
@@ -13,10 +22,10 @@
             <span ng-show="isplaying()">Now playing</span>
             <span ng-hide="isplaying()" class="big">Player paused</span>
         </section>
-        <section ng-show="isplaying()" class="currentsongpanel">
-            <span>{{current.song}} - {{current.artist}}</span>
+        <section class="currentsongpanel">
+            <span ng-class="{big: isplaying()}">{{current.song}} - {{current.artist}}</span>
         </section>
-        <section ng-show="isplaying()" class="currentalbumpanel">
+        <section class="currentalbumpanel">
             <span>{{current.album}}</span>
         </section>
     </div>
@@ -24,4 +33,3 @@
         <div class="playbarprogress"></div>
     </div>
 </div>
-

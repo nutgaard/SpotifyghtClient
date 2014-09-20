@@ -12,6 +12,7 @@
             $scope.player = undefined;
             $scope.status = undefined;
             $scope.playerstate = false;
+            $scope.showcsrf = true;
             $scope.current = {
                 song: '',
                 artist: '',
@@ -22,15 +23,21 @@
             };
             $scope.intervalUpdate = undefined;
 
-            Spotify.start('bf1a2d09e98ce4c077b70f965bd12faa').done(function (ok, instance, status) {
-                $scope.$apply(function () {
-                    $scope.player = instance;
-                    $scope.status = status;
-                    $scope.startLongPolling();
+            $scope.testCSRF = function (token) {
+                Spotify.start(token).done(function (ok, instance, status) {
+                    $scope.$apply(function () {
+                        $scope.showcsrf = false;
+                        $scope.player = instance;
+                        $scope.status = status;
+                        $scope.startLongPolling();
+                    });
+                }).fail(function () {
+                    $('.csrfinput').find('#csrf').css({'background-color': '#FFAAAA'});
+                    setTimeout(function () {
+                        $('.csrfinput').find('#csrf').css({'background-color': '#FFF'});
+                    }, 200);
                 });
-            }).fail(function () {
-                console.log('Could not connect to spotify client');
-            });
+            };
 
             $scope.$watch('status', function (status) {
                 if (typeof status === 'undefined') {
