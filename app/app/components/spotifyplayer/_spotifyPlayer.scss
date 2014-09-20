@@ -58,14 +58,15 @@ spotify-player {
     }
   }
   .statuspanel {
+    margin-left: $playbuttonPanelSize;
     position: relative;
     height: 100%;
-    padding-top: 1rem;
+    padding-top: 1.8rem;
     color: #FFF;
 
     .informationpanel {
 
-      .statuspanel {
+      .songpanel {
         span {
           color: $grey;
           &.big {
@@ -88,7 +89,7 @@ spotify-player {
       position: absolute;
       width: 100%;
       height: 4px;
-      bottom: 8px;
+      bottom: 1.5rem;
       background-color: $grey;
       .playbarprogress {
         width: 55%;
