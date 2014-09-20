@@ -8,7 +8,7 @@
                 controller: 'SpotifyPlayerCtrl'
             };
         }])
-        .controller('SpotifyPlayerCtrl', ['$scope', function ($scope) {
+        .controller('SpotifyPlayerCtrl', ['$scope', '$routeParams', 'Track', function ($scope, $routeParams, Track) {
             $scope.player = undefined;
             $scope.status = undefined;
             $scope.playerstate = false;
@@ -77,6 +77,7 @@
             };
             $scope.playpause = function () {
                 $scope.playerstate = !$scope.playerstate;
+                $scope.player.togglePause();
             };
 
             function playerReady() {
@@ -85,7 +86,24 @@
 
             function updateProgessPercent() {
                 var p = ($scope.current.position / $scope.current.songlength) * 100;
+
+                if ($scope.current.position > $scope.current.songlength -1) {
+                    startNewTrack();
+                }
+
                 $('.playbarprogress').css({width: p + '%'});
             }
+            var startNewTrack = function () {
+                console.log('starting new song');
+                Track.index({groupId: $routeParams.groupId}, function (tracks, response) {
+                    console.log('tracks', tracks.scores);
+                    console.log('tracks', tracks.scores.length);
+                    if (tracks.scores.length > 0) {
+                        console.log('starting new song ', tracks.scores[0].id);
+                        var newtrack = tracks.scores[0];
+                        $scope.player.play(newtrack.id);
+                    }
+                });
+            };
         }]);
 })();
