@@ -1,9 +1,10 @@
-<div>
-    <input type="text" id="search" placeholder="Search" ng-model="search" ng-change="updateResults()" ng-keydown="keyevent($event)" ng-focus="showDropdown()" autofocus>
-    <ul ng-show="isDropdownVisible()">
-        <li ng-repeat="result in results | limitTo:10" ng-class="{selected: $index === selected}" ng-click="selectTrack(result)" ng-mouseover="hover($index)">
-            <section>{{result.name}}</section>
-            <section class="dd-artist">{{result.artists[0].name}}</section>
-        </li>
-    </ul>
-</div>
+<input type="text" id="search" placeholder="Search" ng-model="search" ng-change="updateResults()"
+       ng-keydown="keyevent($event)" ng-focus="showDropdown()" autofocus>
+
+<ul ng-show="isDropdownVisible()">
+    <li ng-repeat="result in results | limitTo:10" ng-class="{selected: $index === selected}"
+        ng-click="selectTrack(result)" ng-mouseover="hover($index)">
+        <section>{{result.name}}</section>
+        <section class="dd-artist">{{result.artists[0].name}}</section>
+    </li>
+</ul>
