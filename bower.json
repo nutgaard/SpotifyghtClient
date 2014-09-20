@@ -25,12 +25,8 @@
     "angular-route": "~1.3.0",
     "angular-resource": "~1.3.0",
     "spotifyjs": "~0.0.5",
-    "angular-socket-io": "~0.6.0",
-    "socket.io": "~1.1.0",
+    "angular-socket-io": "#master",
     "spotify-web-api-js": "~0.4.2",
     "lodash": "~2.4.1"
-  },
-  "resolutions": {
-    "angular": "~1.3.0"
   }
 }

@@ -1,8 +1,6 @@
 (function () {
     'use strict';
 
-    var API_ENDPOINT = 'ws://localhost:3001/';
-
     var SocketService = angular.module('SocketService', ['btford.socket-io']);
 
     SocketService.factory('socket', ['$rootScope', 'socketFactory', 'API_ENDPOINT',

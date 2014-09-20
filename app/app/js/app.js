@@ -13,7 +13,8 @@
         'SocketService',
         'SongDataService',
         'DatasourceFactory',
-        'CallbackFactory'
+        'CallbackFactory',
+        'LocalStoreService'
     ])
         //.constant('API_ENDPOINT', 'http://10.0.1.2:3001/')
         .constant('API_ENDPOINT', 'http://localhost:3001/')
@@ -38,11 +39,11 @@
                     redirectTo: '/home'
                 });
 //          $locationProvider.html5Mode(true);
-            $httpProvider.defaults.useXDomain = true;
-//    $httpProvider.defaults.withCredentials = true;
-            delete $httpProvider.defaults.headers.common["X-Requested-With"];
-            $httpProvider.defaults.headers.common["Accept"] = "application/json";
-            $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
+    $httpProvider.defaults.useXDomain = true;
+    $httpProvider.defaults.withCredentials = true;
+    delete $httpProvider.defaults.headers.common["X-Requested-With"];
+    $httpProvider.defaults.headers.common["Accept"] = "application/json";
+    $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
 
         }]);
 })();

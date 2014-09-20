@@ -4,8 +4,13 @@
     angular.module('spotifyghtAppControllers')
         .controller('HomeCtrl', ['$scope', '$routeParams',
             function($scope, $routeParams) {
-                $scope.name = "test";
                 console.log("loaded home");
+
+                $scope.login = function() {
+                    console.log('submit');
+                    console.log('$scope.username', $scope.username);
+                    localStorage.username = angular.toJson($scope.username);
+                };
             }
         ]);
 })();

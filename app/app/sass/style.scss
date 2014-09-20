@@ -3,6 +3,7 @@
 @import "../components/searchbox/searchBox";
 @import "../components/spotifyplayer/spotifyPlayer";
 @import "group";
+@import 'home';
 
 *, *:before, *:after {
     @include box-sizing(border-box);
