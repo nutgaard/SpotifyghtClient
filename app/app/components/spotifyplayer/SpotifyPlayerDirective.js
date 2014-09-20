@@ -87,12 +87,14 @@
             function updateProgessPercent() {
                 var p = ($scope.current.position / $scope.current.songlength) * 100;
 
-                if ($scope.current.position > $scope.current.songlength -1) {
+                if ($scope.current.position > $scope.current.songlength - 1) {
                     startNewTrack();
+
                 }
 
                 $('.playbarprogress').css({width: p + '%'});
             }
+
             var startNewTrack = function () {
                 console.log('starting new song');
                 Track.index({groupId: $routeParams.groupId}, function (tracks, response) {
@@ -101,7 +103,9 @@
                     if (tracks.scores.length > 0) {
                         console.log('starting new song ', tracks.scores[0].id);
                         var newtrack = tracks.scores[0];
-                        $scope.player.play(newtrack.id);
+                        $scope.player.play(newtrack.id).then(function () {
+                            Track.delete({groupId: $routeParams.groupId, trackId: newtrack.id.split(':')[2]});
+                        });
                     }
                 });
             };
