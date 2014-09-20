@@ -21,7 +21,7 @@
         .constant('SPOTIFY_TRACK_PREFIX', 'spotify:track:');
 
     // instantiate module
-    angular.module('spotifyghtAppControllers', []);
+    angular.module('spotifyghtAppControllers', ['LocalStoreService']);
     angular.module('spotifyghtComponents', []);
 
     spotify.config(['$routeProvider', '$httpProvider', '$locationProvider',

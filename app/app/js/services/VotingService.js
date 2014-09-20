@@ -25,5 +25,12 @@
         });
     }
     ]);
+    votingservices.factory('User', ['$resource', 'API_ENDPOINT', function ($resource, API_ENDPOINT) {
+            return $resource('/login', {}, {
+                create: { method: 'POST' }
+            });
+        }
+    ]);
+
 
 })();

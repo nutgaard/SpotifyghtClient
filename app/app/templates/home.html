@@ -1,14 +1,25 @@
 <article class="homescreen">
     <section class="welcome">
-        <h1 ng-hide="name">{{name}}</h1>
+        <h1 ng-show="loggedIn">Welcome {{username}}</h1>
     </section>
 
-    <section class="input" ng-hide="isloggedin">
-        <form ng-submit="login()">
-            <material-input-group layout="vertical" layout-align="center center">
-                <label for="username">Enter your name</label>
-                <material-input id="username" ng-model="username" type="text" autofocus="true">
-            </material-input-group>
+    <section class="input">
+        <form ng-submit="login()" ng-hide="loggedIn">
+            <div class="group">
+                <input id="username" ng-model="username" type="text" autofocus="true" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <label>What is your name?</label>
+            </div>
         </form>
+        <form ng-submit="gotoGroup()" ng-show="loggedIn">
+            <div class="group">
+                <input id="group" ng-model="group" type="text" autofocus="true" required>
+                <span class="highlight"></span>
+                <span class="bar"></span>
+                <span><label>Join a group?</label></span>
+            </div>
+        </form>
+
     </section>
 </article>

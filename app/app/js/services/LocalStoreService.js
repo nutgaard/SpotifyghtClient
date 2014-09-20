@@ -7,7 +7,7 @@
             function (SPOTIFY_TRACK_PREFIX) {
 
                 var getKey = function (key) {
-                    var value = null;
+                    var value;
                     try {
                         if(localStorage.hasOwnProperty(key)) {
                             value = angular.fromJson(localStorage[key]);
