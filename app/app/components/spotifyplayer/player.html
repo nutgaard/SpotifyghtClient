@@ -5,15 +5,19 @@
 </div>
 <div class="statuspanel">
     <div class="informationpanel">
-        <section>
+        <section class="statuspanel">
             <span ng-show="isplaying()">Now playing</span>
             <span ng-hide="isplaying()">Player paused</span>
         </section>
-        <section ng-show="isplaying()">
+        <section ng-show="isplaying()" class="currentsongpanel">
             <span>{{song}} - {{artist}}</span>
+        </section>
+        <section class="currentalbumpanel">
             <span>{{album}}</span>
         </section>
     </div>
-    <div class="playbar"></div>
+    <div class="playbar">
+        <div class="playbarprogress"></div>
+    </div>
 </div>
 
