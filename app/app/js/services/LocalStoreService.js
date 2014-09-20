@@ -27,8 +27,8 @@
 
 
                 return {
-                    getKey: getKey,
-                    putKey: putKey
+                    get: getKey,
+                    put: putKey
                 };
             }]
     );

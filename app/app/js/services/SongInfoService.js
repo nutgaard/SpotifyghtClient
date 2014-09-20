@@ -5,15 +5,17 @@
     var albumProps = ['name', 'uri', 'images', 'type'];
     var artistProps = ['name', 'uri', 'type'];
 
+    var SONGCACHE = 'songCache';
+
     var SongInfo = angular.module('SongDataService', ['SpotifyWebAPIService', 'LocalStoreService']);
 
     SongInfo.factory('SongData', ['SpotifyWebAPI', 'SPOTIFY_TRACK_PREFIX', 'LocalStorage',
             function (SpotifyWebAPI, SPOTIFY_TRACK_PREFIX, LocalStorage) {
-                var songCache = LocalStorage.getKey('songCache');
+                var songCache = LocalStorage.get(SONGCACHE);
                 if(!songCache) {
                     songCache = {};
                 }
-
+                console.log('loaded songCache', songCache);
                 var loadTrackInfo = function (tracks, callback) {
                     var trackIds = [];
 
@@ -55,8 +57,7 @@
                         songCache = $.extend(songCache, filtered);
 
                         callback(songCache);
-                        localStorage.SongCache = angular.toJson(songCache);
-
+                        LocalStorage.put(SONGCACHE, songCache);
                     });
                 };
                 var findTrackId = function (track) {

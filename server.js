@@ -17,6 +17,8 @@ var cors = function (req, res, next) {
 
 var app = express();
 app.http().io();
+app.io.enable('browser client minification');
+app.io.enable('browser client etag');
 
 if (env === 'dev') {
     app.use(morgan('dev'));
@@ -28,4 +30,3 @@ app.use(express.static(__dirname +'/'+ resources));
 app.listen(port, function () {
     console.log('Server started on port ', port);
 });
-
