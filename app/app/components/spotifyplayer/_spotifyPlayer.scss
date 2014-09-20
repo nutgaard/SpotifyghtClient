@@ -11,6 +11,7 @@ spotify-player {
   height: $playbuttonPanelSize;
 
   .playbuttonpanel {
+    @include user-select(none);
     float: left;
     position: relative;
 //    background-color: $highlightGreen;
@@ -92,7 +93,7 @@ spotify-player {
       bottom: 1.5rem;
       background-color: $grey;
       .playbarprogress {
-        width: 55%;
+        width: 0%;
         background-color: $highlightGreen;
         height: 4px;
         @include transition(width 0.2s linear);

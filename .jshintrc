@@ -81,6 +81,7 @@
         "_": true,
         "$": true,
         "SpotifyWebApi": true,
+        "Spotify": true,
         "require": true
     }        // additional predefined global variables
 }
