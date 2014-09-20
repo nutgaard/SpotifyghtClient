@@ -30,9 +30,8 @@
                 }
             };
             $scope.selectElement = function (element) {
-                $scope.callbackImpl(element).then(function(){
+                $scope.callbackImpl(element).then(function () {
                     $scope.selected = 0;
-                    $scope.results = [];
                     $scope.dropdownVisible = false;
                 });
             };
@@ -60,15 +59,23 @@
             };
             var keymap = {
                 38: function (e) {
-                    $scope.selected--;
-                    if ($scope.selected < 0) {
-                        $scope.selected += $scope.results.length;
+                    if (!$scope.dropdownVisible) {
+                        $scope.dropdownVisible = true;
+                    } else {
+                        $scope.selected--;
+                        if ($scope.selected < 0) {
+                            $scope.selected += $scope.results.length;
+                        }
                     }
                     e.preventDefault();
                 },
                 40: function (e) {
-                    $scope.selected++;
-                    $scope.selected %= $scope.results.length;
+                    if (!$scope.dropdownVisible) {
+                        $scope.dropdownVisible = true;
+                    } else {
+                        $scope.selected++;
+                        $scope.selected %= $scope.results.length;
+                    }
                     e.preventDefault();
                 },
                 13: function (e) {
@@ -78,11 +85,12 @@
                     $scope.dropdownVisible = false;
                 }
             };
+
             function checkNecessaryHTMLParams() {
-                if (typeof $scope.datasource === 'undefined' || typeof Datasoures.get($scope.datasource) === 'undefined'){
+                if (typeof $scope.datasource === 'undefined' || typeof Datasoures.get($scope.datasource) === 'undefined') {
                     throw 'Datasource not defined';
                 }
-                if (typeof $scope.callback === 'undefined' || typeof Callbacks.get($scope.callback) === 'undefined'){
+                if (typeof $scope.callback === 'undefined' || typeof Callbacks.get($scope.callback) === 'undefined') {
                     throw 'Callback not defined';
                 }
                 $scope.limitToValue = $scope.limitTo || 10;
