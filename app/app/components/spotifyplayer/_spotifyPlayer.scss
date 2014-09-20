@@ -26,6 +26,7 @@ spotify-player {
       border: 3px solid $highlightGreen;
 
       @include background-image(linear-gradient($gradientGreyTop, $gradientGreyBottom));
+
       &:hover {
         @include background-image(linear-gradient($gradientSandTop, $gradientGreyBottom));
       }
@@ -35,9 +36,24 @@ spotify-player {
       @include border-radius(100%);
 
       .arrow {
-        margin-left: 33px;
+        margin-left: 30px;
         margin-top: 18px;
         @include arrow-right($playbuttonSize, black);
+      }
+      .pause {
+        div {
+          position: absolute;
+          width: 10px;
+          height: 35px;
+          background: black;
+          top: 20px;
+        }
+        div:first-child {
+          left: 22px;
+        }
+        div:last-child {
+          left: 42px;
+        }
       }
     }
   }
@@ -52,6 +68,9 @@ spotify-player {
       .statuspanel {
         span {
           color: $grey;
+          &.big {
+            font-size: 22px;
+          }
         }
       }
       .currentsongpanel {

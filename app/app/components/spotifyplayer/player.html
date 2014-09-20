@@ -1,19 +1,23 @@
 <div class="playbuttonpanel">
     <div class="playbutton">
-        <div class="arrow"></div>
+        <div ng-show="isplaying()" class="arrow"></div>
+        <div ng-hide="isplaying()" class="pause">
+            <div></div>
+            <div></div>
+        </div>
     </div>
 </div>
 <div class="statuspanel">
     <div class="informationpanel">
         <section class="statuspanel">
             <span ng-show="isplaying()">Now playing</span>
-            <span ng-hide="isplaying()">Player paused</span>
+            <span ng-hide="isplaying()" class="big">Player paused</span>
         </section>
         <section ng-show="isplaying()" class="currentsongpanel">
-            <span>{{song}} - {{artist}}</span>
+            <span>{{current.song}} - {{current.artist}}</span>
         </section>
-        <section class="currentalbumpanel">
-            <span>{{album}}</span>
+        <section ng-show="isplaying()" class="currentalbumpanel">
+            <span>{{current.album}}</span>
         </section>
     </div>
     <div class="playbar">

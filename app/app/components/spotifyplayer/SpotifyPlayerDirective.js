@@ -9,13 +9,12 @@
             };
         }])
         .controller('SpotifyPlayerCtrl', ['$scope', function ($scope) {
+            $scope.current = {
+                song: 'Tore tang',
+                artist: 'Mods',
+                album: 'Et eller annet',
+                uri: ''
+            };
             $scope.isplaying = function(){return true;};
-
-            $scope.song = 'Tore tang';
-            $scope.artist = 'Mods';
-            $scope.album = 'Et eller annet';
-            $scope.uri = '';
-
-            
         }]);
 })();
