@@ -65,7 +65,7 @@
 
             });
             $scope.startLongPolling = function () {
-                $scope.player.status().then(function (status) {
+                $scope.player.status(10).then(function (status) {
                     $scope.$apply(function () {
                         $scope.status = status;
                     });
@@ -86,8 +86,7 @@
 
             function updateProgessPercent() {
                 var p = ($scope.current.position / $scope.current.songlength) * 100;
-
-                if ($scope.current.position > $scope.current.songlength - 1) {
+                if ($scope.current.position > $scope.current.songlength - 1.0) {
                     startNewTrack();
 
                 }
