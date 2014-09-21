@@ -8,14 +8,14 @@
         </section>
         <section class="inputpanel">
             <input name="csrf" id="csrf" placeholder="token" ng-model="csrfToken"/>
-            <span ng-click="testCSRF(csrfToken)">GO</span>
+            <span ng-click="testCSRF()">GO</span>
         </section>
         <section class="rememberme">
             <div class="spotifyCheckbox">
-                <input type="checkbox" name="remember" id="remember"/>
+                <input type="checkbox" name="remember" id="remember" ng-model="rememberme"/>
                 <label for="remember"></label>
             </div>
-            Remember this to next time.
+            <span>Remember this to next time.</span>
         </section>
     </div>
 </div>

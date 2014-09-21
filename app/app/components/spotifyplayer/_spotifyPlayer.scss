@@ -57,6 +57,8 @@ spotify-player {
       }
       .rememberme {
         clear: both;
+        padding-top: 0.3rem;
+        @include prettycheckbox;
       }
     }
   }

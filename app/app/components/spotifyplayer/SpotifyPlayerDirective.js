@@ -13,6 +13,7 @@
             $scope.status = undefined;
             $scope.playerstate = false;
             $scope.showcsrf = true;
+            $scope.rememberme = checkLocalStorage();
             $scope.current = {
                 song: '',
                 artist: '',
@@ -23,19 +24,34 @@
             };
             $scope.intervalUpdate = undefined;
 
-            $scope.testCSRF = function (token) {
-                Spotify.start(token).done(function (ok, instance, status) {
+            $scope.testCSRF = function () {
+                Spotify.start($scope.csrfToken).done(function (ok, instance, status) {
                     $scope.$apply(function () {
                         $scope.showcsrf = false;
                         $scope.player = instance;
                         $scope.status = status;
+                        if ($scope.rememberme) {
+                            window.localStorage.setItem('csrfToken', $scope.csrfToken);
+                        }
                         $scope.startLongPolling();
                     });
                 }).fail(function () {
                     $('.csrfinput').find('#csrf').css({'background-color': '#FFAAAA'});
                     setTimeout(function () {
                         $('.csrfinput').find('#csrf').css({'background-color': '#FFF'});
+                    }, 100);
+                    setTimeout(function () {
+                        $('.csrfinput').find('#csrf').css({'background-color': '#FFAAAA'});
                     }, 200);
+                    setTimeout(function () {
+                        $('.csrfinput').find('#csrf').css({'background-color': '#FFF'});
+                    }, 300);
+                    setTimeout(function () {
+                        $('.csrfinput').find('#csrf').css({'background-color': '#FFAAAA'});
+                    }, 400);
+                    setTimeout(function () {
+                        $('.csrfinput').find('#csrf').css({'background-color': '#FFF'});
+                    }, 500);
                 });
             };
 
@@ -92,6 +108,17 @@
                 }
 
                 $('.playbarprogress').css({width: p + '%'});
+            }
+
+            function checkLocalStorage() {
+                var str = window.localStorage.getItem('csrfToken');
+                if (str) {
+                    $scope.csrfToken = str;
+                    return true;
+                } else {
+                    $scope.csrfToken = undefined;
+                    return false;
+                }
             }
 
             var startNewTrack = function () {
