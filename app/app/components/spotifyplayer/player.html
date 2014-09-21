@@ -1,10 +1,22 @@
 <div class="csrfinput" ng-show="showcsrf">
     <div>
-        <p>
+        <section class="introtext">
             <label for="csrf">Your csrf token:</label>
-            <p class="grey">See <a href="https://github.com/nutgaard/SpotifyHttpJs/blob/master/README.md" target="_blank">here</a> for instructions.</p>
-        </p>
-        <input name="csrf" id="csrf" placeholder="token" ng-model="csrfToken"/><span ng-click="testCSRF(csrfToken)">GO</span>
+
+            <p class="grey">See <a href="https://github.com/nutgaard/SpotifyHttpJs/blob/master/README.md"
+                                   target="_blank">here</a> for instructions.</p>
+        </section>
+        <section class="inputpanel">
+            <input name="csrf" id="csrf" placeholder="token" ng-model="csrfToken"/>
+            <span ng-click="testCSRF(csrfToken)">GO</span>
+        </section>
+        <section class="rememberme">
+            <div class="spotifyCheckbox">
+                <input type="checkbox" name="remember" id="remember"/>
+                <label for="remember"></label>
+            </div>
+            Remember this to next time.
+        </section>
     </div>
 </div>
 <div class="playbuttonpanel">
