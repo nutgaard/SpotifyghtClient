@@ -140,8 +140,8 @@
                     }
                 });
             };
-//            if ($scope.rememberme){
-//                $scope.testCSRF();
-//            }
+            if ($scope.rememberme){
+                $scope.testCSRF();
+            }
         }]);
 })();
