@@ -15,7 +15,7 @@
 
 body {
   color: $light;
-  background-color: black;
+  background-color: $backgroundDark;
   //    @include background-image(linear-gradient($gradientBlackBottom, $gradientBlackTop));
   //    background-attachment: fixed;
 }
