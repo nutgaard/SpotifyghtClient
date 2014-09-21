@@ -29,8 +29,10 @@
   "author": "Nicklas Utgaard",
   "license": "MIT",
   "dependencies": {
-    "body-parser": "^1.6.5",
+    "body-parser": "^1.8.3",
+    "connect-redis": "^2.1.0",
     "express": "^4.8.5",
+    "express-session": "^1.8.2",
     "express.io": "^1.1.13",
     "morgan": "^1.2.3"
   }
