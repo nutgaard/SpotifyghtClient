@@ -25,13 +25,15 @@
             $scope.intervalUpdate = undefined;
 
             $scope.testCSRF = function () {
-                Spotify.start($scope.csrfToken).done(function (ok, instance, status) {
+                var token = $scope.csrfToken;
+                $scope.csrfToken = 'Connecting to Spotify';
+                Spotify.start(token).done(function (ok, instance, status) {
                     $scope.$apply(function () {
                         $scope.showcsrf = false;
                         $scope.player = instance;
                         $scope.status = status;
                         if ($scope.rememberme) {
-                            window.localStorage.setItem('csrfToken', $scope.csrfToken);
+                            window.localStorage.setItem('csrfToken', token);
                         }
                         $scope.startLongPolling();
                     });
@@ -51,6 +53,9 @@
                     }, 400);
                     setTimeout(function () {
                         $('.csrfinput').find('#csrf').css({'background-color': '#FFF'});
+                        $scope.$apply(function () {
+                            $scope.csrfToken = token;
+                        });
                     }, 500);
                 });
             };
@@ -135,5 +140,8 @@
                     }
                 });
             };
+//            if ($scope.rememberme){
+//                $scope.testCSRF();
+//            }
         }]);
 })();
