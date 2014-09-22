@@ -1,14 +1,18 @@
 {
 	"dev": {
 		"port": 3000,
-		"resources": "app/app/"
+		"resources": "app/app/",
+		"db": {
+			"host": "10.0.1.100",
+			"port": "6379"
+		}
 	},
     "prod": {
 		"port": 3000,
-		"resources": "app/www/"
-	},
-	"db": {
-		"host": "10.0.1.100",
-		"port": "6379"
+		"resources": "app/www/",
+		"db": {
+			"host": "10.0.1.100",
+			"port": "6379"
+		}
 	}
 }
