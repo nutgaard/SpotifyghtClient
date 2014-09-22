@@ -35,15 +35,12 @@ app.io.enable('browser client etag');
 app.use(express.cookieParser());
 
 app.use(session( {
-        store: new RedisStore({
-            host: "10.0.1.100",
-            port: "6379"
-        }),
+        store: new RedisStore(config.db),
         secret: SECRET,
         cookie: {
                 secure: false,
                 httpOnly: true,
-                domain: '.logisk-dev.org',
+                domain: 'knudix.mooo.com',
                 maxAge: 1000 * 60 * 60 * 24
             }
     }
