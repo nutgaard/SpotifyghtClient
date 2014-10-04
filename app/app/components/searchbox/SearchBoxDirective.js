@@ -1,7 +1,7 @@
 (function () {
     "use strict";
     angular.module('spotifyghtComponents')
-        .directive('searchBox', ['$routeParams', function ($routeParams) {
+        .directive('searchBox', [function () {
             return {
                 restrict: 'E',
                 templateUrl: 'components/searchbox/search.html',
@@ -42,7 +42,7 @@
                 $scope.dropdownVisible = true;
             };
             $scope.isDropdownVisible = function () {
-                return $scope.dropdownVisible && $scope.results.length > 0;
+                return $scope.dropdownVisible && $scope.search.length >= 3;
             };
             var fetchResults = function () {
                 if ($scope.search.length < 3) {
@@ -51,6 +51,7 @@
                 }
                 $scope.datasourceImpl($scope.search)
                     .then(function (data) {
+                        console.log('got data');
                         $scope.results = data.tracks.items;
                         $scope.selected = 0;
                         $scope.dropdownVisible = true;
@@ -78,7 +79,7 @@
                     }
                     e.preventDefault();
                 },
-                13: function (e) {
+                13: function () {
                     $scope.selectElement($scope.results[$scope.selected]);
                 },
                 27: function () {
