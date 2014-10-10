@@ -7,7 +7,7 @@
     </li>
     <li ng-repeat="result in results | limitTo:limitToValue" ng-class="{selected: $index === selected}"
         ng-click="selectElement(result)" ng-mouseover="hover($index)">
-        <section>{{result.name}} ++</section>
+        <section>{{result.name}}</section>
         <section class="dd-artist">{{result.artists[0].name}}</section>
     </li>
 </ul>

@@ -1,0 +1,73 @@
+fancy-input {
+  width: 100%;
+  div {
+    display: inline-block;
+    input {
+      font-size: 18px;
+      padding: 10px 10px 10px 5px;
+      display: block;
+      width: 300px;
+      border: none;
+      background-color: $backgroundDark;
+      border-bottom: 1px solid #757575;
+      margin: 0 auto;
+      color: white;
+      &:focus {
+        outline: none;
+      }
+    }
+    .bar {
+      position: relative;
+      display: block;
+      margin: 0 auto;
+      width: 300px;
+      &:before, &:after {
+        content: '';
+        height: 2px;
+        width: 0;
+        bottom: 1px;
+        position: absolute;
+        background: $highlightGreen;
+        transition: 0.2s ease all;
+      }
+      &:before {
+        left: 50%;
+      }
+      &:after {
+        right: 50%;
+      }
+    }
+    /* active state */
+    input:focus ~ .bar:before, input:focus ~ .bar:after {
+      width: 50%;
+    }
+    /* valid state */
+    input:valid ~ .bar:before, input:valid ~ .bar:after {
+      width: 50%;
+    }
+    .highlight {
+      position: absolute;
+      height: 60%;
+      top: 25%;
+      left: 0;
+      pointer-events: none;
+      opacity: 0.5;
+    }
+
+    /* active state */
+    input:focus ~ .highlight {
+      animation: inputHighlighter 0.3s ease;
+    }
+
+    /* ANIMATIONS ================ */
+    @keyframes inputHighlighter {
+      from {
+        background: $highlightGreen;
+      }
+      to {
+        width: 0;
+        background: transparent;
+      }
+    }
+  }
+}

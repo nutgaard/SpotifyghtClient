@@ -5,6 +5,10 @@
         .controller('HomeCtrl', ['$scope', '$routeParams', 'User', '$location', 'LocalStorage',
             function($scope, $routeParams, User, $location, LocalStorage) {
                 console.log("loaded home");
+                $scope.showUsernamePrompt = true;
+                $scope.showRolePrompt = false;
+                $scope.showGroupPrompt = false;
+
 
                 var user = LocalStorage.get('user');
 
@@ -14,13 +18,12 @@
                     login();
                 };
                 var login = function() {
-                    console.log('var user', user);
                     user = {username: $scope.username};
                     LocalStorage.put('user', user);
                     User.create(user, function(res, headers) {
-                        console.log(res);
-                        console.log('user logged in');
-                        $scope.loggedIn = true;
+                        $scope.showUsernamePrompt = false;
+                        $scope.showRolePrompt = true;
+                        $scope.showGroupPrompt = true;
                     });
                 };
                 $scope.gotoGroup = function() {

@@ -1,24 +1,16 @@
 <article class="homescreen">
     <section class="welcome">
-        <h1 ng-show="loggedIn">Welcome {{username}}</h1>
+        <h1 ng-show="!showUsernamePrompt">Welcome {{username}}</h1>
     </section>
 
     <section class="input">
-        <form ng-submit="login()" ng-hide="loggedIn">
-            <div class="group">
-                <input id="username" ng-model="username" type="text" autofocus="true" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-                <label>What is your name?</label>
-            </div>
+        <form ng-submit="login()" ng-show="showUsernamePrompt">
+            <label>What is your name?</label>
+            <fancy-input ng-model="username" autofocus="true" required></fancy-input>
         </form>
-        <form ng-submit="gotoGroup()" ng-show="loggedIn">
-            <div class="group">
-                <label>Join a group?</label>
-                <input id="group" ng-model="group" type="text" autofocus="true" required>
-                <span class="highlight"></span>
-                <span class="bar"></span>
-            </div>
+        <form ng-submit="gotoGroup()" ng-show="showGroupPrompt">
+            <label>Join a group?</label>
+            <fancy-input ng-model="group" autofocus="true" required ></fancy-input>
         </form>
 
     </section>
