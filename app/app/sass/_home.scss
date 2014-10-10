@@ -5,20 +5,29 @@
   margin: 0 auto;
   padding-top: 20%;
 
-  form {
-    position: relative;
-    height: 60px;
-    label {
-      position: absolute;
-      top: 15px;
-      color: #999;
-      font-size: 18px;
-      font-weight: normal;
-      pointer-events: none;
-      margin: 0 auto;
+  h2 {
+    color: $grey;
+  }
+
+  .username, .usergroup {
+    form {
+      position: relative;
+      height: 60px;
+      label {
+        position: absolute;
+        top: 15px;
+        color: #999;
+        font-size: 18px;
+        font-weight: normal;
+        pointer-events: none;
+        margin: 0 auto;
+      }
+      fancy-text-input {
+        padding-left: 190px;
+      }
     }
-    fancy-text-input {
-      padding-left: 190px;
-    }
+  }
+  fancy-button {
+    margin-right: 45px;
   }
 }

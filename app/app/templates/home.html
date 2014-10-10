@@ -1,5 +1,5 @@
 <article class="homescreen">
-    <section class="input" ng-show="showUsernamePrompt">
+    <section class="input username" ng-show="showUsernamePrompt">
         <h1>Welcome.</h1>
 
         <form ng-submit="login()">
@@ -8,14 +8,18 @@
         </form>
     </section>
 
-    <section class="input" ng-show="showRolePrompt">
+    <section class="input userrole" ng-show="showRolePrompt">
         <h1>Welcome {{username}}</h1>
+        <h2>Are you hosting the Spotify client, or just a participant?</h2>
         <form ng-submit="choseRole()">
+            <fancy-button ng-click="choseRole('Host')">Hosting</fancy-button>
+            <fancy-button ng-click="choseRole('Participant')">Participant</fancy-button>
         </form>
     </section>
 
-    <section class="input" ng-show="showGroupPrompt">
-        <h1>Welcome {{username}}</h1>
+    <section class="input usergroup" ng-show="showGroupPrompt">
+        <h1>Ok, {{username}}</h1>
+        <h2>You chose {{userrole}}, now name your group...</h2>
         <form ng-submit="gotoGroup()">
             <label>Join a group?</label>
             <fancy-text-input ng-model="group" autofocus="true" required></fancy-text-input>
