@@ -1,11 +1,10 @@
 (function () {
     "use strict";
     angular.module('spotifyghtComponents')
-        .directive('fancyInput', [function () {
+        .directive('fancyTextInput', [function () {
             return {
                 restrict: 'E',
                 templateUrl: 'components/fancyinput/text/input.html',
-                controller: 'FancyInputCtrl',
                 compile: function () {
                     return function (scope, iEl) {
                         var attrs = $(iEl).prop("attributes");
@@ -16,16 +15,8 @@
                     };
                 },
                 scope: {
-                    onSubmit: '&',
                     ngModel: '='
                 }
-            };
-        }])
-        .controller('FancyInputCtrl', ['$scope', function ($scope) {
-            $scope.text = $scope.model;
-            $scope.onSubmit();
-            $scope.submit = function (event) {
-                $scope.onSubmit(event);
             };
         }]);
 })();

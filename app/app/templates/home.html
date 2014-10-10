@@ -4,7 +4,7 @@
 
         <form ng-submit="login()">
             <label>What is your name?</label>
-            <fancy-input ng-model="username" autofocus="true" required></fancy-input>
+            <fancy-text-input ng-model="username" autofocus="true" required></fancy-text-input>
         </form>
     </section>
 
@@ -18,7 +18,7 @@
         <h1>Welcome {{username}}</h1>
         <form ng-submit="gotoGroup()">
             <label>Join a group?</label>
-            <fancy-input ng-model="group" autofocus="true" required></fancy-input>
+            <fancy-text-input ng-model="group" autofocus="true" required></fancy-text-input>
         </form>
 
     </section>
