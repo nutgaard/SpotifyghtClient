@@ -4,10 +4,10 @@
         .directive('fancyInput', [function () {
             return {
                 restrict: 'E',
-                templateUrl: 'components/fancyinput/input.html',
+                templateUrl: 'components/fancyinput/text/input.html',
                 controller: 'FancyInputCtrl',
-                compile: function (tEl, tAttrs) {
-                    return function (scope, iEl, tAttrs) {
+                compile: function () {
+                    return function (scope, iEl) {
                         var attrs = $(iEl).prop("attributes");
                         var $input = $(iEl).find('input');
                         $.each(attrs, function(){

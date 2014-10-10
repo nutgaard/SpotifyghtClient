@@ -20,10 +20,9 @@
                 var login = function() {
                     user = {username: $scope.username};
                     LocalStorage.put('user', user);
-                    User.create(user, function(res, headers) {
+                    User.create(user, function() {
                         $scope.showUsernamePrompt = false;
                         $scope.showRolePrompt = true;
-                        $scope.showGroupPrompt = true;
                     });
                 };
                 $scope.gotoGroup = function() {
