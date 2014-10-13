@@ -26,12 +26,6 @@ section.trackslist {
   .track-actions {
     color: $grey;
   }
-  .track:first-child {
-    padding-top: 1px;
-    border-top: 1px;
-    border-top-color: $greyOpaque;
-    border-top-style: solid;
-  }
 
   .track {
     padding-top: 5px;
@@ -43,39 +37,42 @@ section.trackslist {
       color: $highlightGreen;
       //  @include background-image(linear-gradient($gradientBlackTop, $gradientBlackBottom));
     }
-  }
+    &:first-child {
+      padding-top: 1px;
+      border-top: 1px;
+      border-top-color: $greyOpaque;
+      border-top-style: solid;
+    }
+    .score {
+      font-size: 10px;
+      color: $grey;
+      padding: 3px;
+    }
+    .deleteTrack:hover {
+      color: $highlightRed;
+    }
+    .deleteTrack {
+      text-align: right;
+      font-size: 0.5rem;
+    }
 
-  .score {
-    font-size: 10px;
-    color: $grey;
-    padding: 3px;
-  }
-
-  .deleteTrack:hover {
-    color: $highlightRed;
-  }
-  .deleteTrack {
-    text-align: right;
-    font-size: 0.5rem;
-  }
-
-  .vote:hover {
-    color: white;
-  }
-  .vote {
-    font-size: 12px;
-    padding-left: 0.3rem;
-    color: $grey;
-    text-align: left;
-    @include user-select(none);
-    i {
+    .vote:hover {
+      color: white;
+    }
+    .vote {
+      font-size: 12px;
       padding-left: 0.3rem;
-      &:hover {
-        cursor: pointer;
+      color: $grey;
+      text-align: left;
+      @include user-select(none);
+      i {
+        padding-left: 0.3rem;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
-
   /* SHADOW/GLOW TRANSITIONS */
   /* Glow */
   .glow {

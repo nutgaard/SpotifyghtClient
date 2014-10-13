@@ -14,7 +14,6 @@
             <section class="pure-g track glow" ng-repeat="track in tracks | orderBy:'score':true">
                     <div class="pure-u-2-24 pure-u-sm-2-24 centervert"><div class="rowcontent vote">({{track.score}})<i ng-click="voteForTrack(track)" class="fa fa-fw fa-plus-circle"></i></div></div>
                     <div class="pure-u-22-24 pure-u-sm-7-24 centervert"><div class="rowcontent">{{trackData[track.id].name}}</div></div>
-                    <!--<div class="pure-u-1-24"></div>-->
                     <div class="pure-u-12-24 pure-u-sm-7-24 centervert"><div class="rowcontent">{{trackData[track.id].artist[0].name}}</div></div>
                     <div class="pure-u-12-24 pure-u-sm-7-24 centervert"><div class="rowcontent">{{trackData[track.id].album.name}}</div></div>
 
