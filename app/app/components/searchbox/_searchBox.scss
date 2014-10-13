@@ -1,6 +1,11 @@
 @import '../../sass/mixins';
+@import '../../sass/fonts';
 
 search-box {
+  * {
+    font-family: $font-family;
+  }
+
   width: 100%;
   display: block;
   position: relative;
