@@ -6,96 +6,102 @@
   margin: 0 auto;
 }
 
-.trackslist {
-//  @include background-image(linear-gradient($gradientGreenTop, $gradientGreenBottom));
-//  background-attachment: fixed;
+section.trackslist {
+  //  @include background-image(linear-gradient($gradientGreenTop, $gradientGreenBottom));
+  //  background-attachment: fixed;
   background-color: #171717;
-}
-.centervert {
-  display: flex;
-}
-.rowcontent {
-//  padding: 0.5em 0.5em;
-  text-align: left;
-  margin: auto 0;
-}
-.trackheader {
-  color: $grey;
-  text-align: left;
-}
-.track-actions {
-  color: $grey;
-}
-.track:first-child {
-  padding-top: 1px;
-  border-top: 1px;
-  border-top-color: $greyOpaque;
-  border-top-style: solid;
-}
 
-.track {
-  padding-top: 5px;
-  border-bottom: 1px;
-  border-bottom-color: $greyOpaque;
-  border-bottom-style: solid;
-  min-height: 2.7rem;
-}
-.track:hover {
-  color: $highlightGreen;
-//  @include background-image(linear-gradient($gradientBlackTop, $gradientBlackBottom));
-}
+  .centervert {
+    display: flex;
+  }
+  .rowcontent {
+    //  padding: 0.5em 0.5em;
+    text-align: left;
+    margin: auto 0;
+  }
+  .trackheader {
+    color: $grey;
+    text-align: left;
+  }
+  .track-actions {
+    color: $grey;
+  }
+  .track:first-child {
+    padding-top: 1px;
+    border-top: 1px;
+    border-top-color: $greyOpaque;
+    border-top-style: solid;
+  }
 
-.score {
-  font-size: 10px;
-  color: $grey;
-  padding: 3px;
-}
+  .track {
+    padding-top: 5px;
+    border-bottom: 1px;
+    border-bottom-color: $greyOpaque;
+    border-bottom-style: solid;
+    min-height: 2.7rem;
+    &:hover {
+      color: $highlightGreen;
+      //  @include background-image(linear-gradient($gradientBlackTop, $gradientBlackBottom));
+    }
+  }
 
-.deleteTrack:hover {
-  color: $highlightRed;
-}
-.deleteTrack {
-  text-align: right;
-  font-size: 0.5rem;
-}
+  .score {
+    font-size: 10px;
+    color: $grey;
+    padding: 3px;
+  }
 
-.vote:hover {
-  color: white;
-}
-.vote {
-  font-size: 12px;
-  padding-left: 0.3rem;
-  color: $grey;
-  text-align: left;
-  @include user-select(none);
-}
+  .deleteTrack:hover {
+    color: $highlightRed;
+  }
+  .deleteTrack {
+    text-align: right;
+    font-size: 0.5rem;
+  }
 
-/* SHADOW/GLOW TRANSITIONS */
-/* Glow */
-.glow {
-//  display: inline-block;
-  -webkit-transition-duration: 0.1s;
-  transition-duration: 0.1s;
-  -webkit-transition-property: box-shadow;
-  transition-property: box-shadow;
-  -webkit-transform: translateZ(0);
-  transform: translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-}
+  .vote:hover {
+    color: white;
+  }
+  .vote {
+    font-size: 12px;
+    padding-left: 0.3rem;
+    color: $grey;
+    text-align: left;
+    @include user-select(none);
+    i {
+      padding-left: 0.3rem;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 
-.glow:hover, .glow:focus, .glow:active {
-  box-shadow: 0 0 5px rgba(200, 200, 200, 0.6);
-  color: $highlightGreen;
-}
+  /* SHADOW/GLOW TRANSITIONS */
+  /* Glow */
+  .glow {
+    //  display: inline-block;
+    -webkit-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transition-property: box-shadow;
+    transition-property: box-shadow;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  }
 
+  .glow:hover, .glow:focus, .glow:active {
+    box-shadow: 0 0 5px rgba(200, 200, 200, 0.6);
+    color: $highlightGreen;
+  }
 
-/*
-When setting the primary font stack, apply it to the Pure grid units along
-with `html`, `button`, `input`, `select`, and `textarea`. Pure Grids use
-specific font stacks to ensure the greatest OS/browser compatibility.
-*/
-html, button, input, select, textarea,
-.pure-g [class *= "pure-u"] {
-  /* Set your content font stack here: */
-  font-family: $font-family;
+  /*
+  When setting the primary font stack, apply it to the Pure grid units along
+  with `html`, `button`, `input`, `select`, and `textarea`. Pure Grids use
+  specific font stacks to ensure the greatest OS/browser compatibility.
+  */
+  html, button, input, select, textarea,
+  .pure-g [class *= "pure-u"] {
+    /* Set your content font stack here: */
+    font-family: $font-family;
+  }
 }
