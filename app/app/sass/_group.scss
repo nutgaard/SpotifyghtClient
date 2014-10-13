@@ -11,6 +11,14 @@
 //  background-attachment: fixed;
   background-color: #171717;
 }
+.centervert {
+  display: flex;
+}
+.rowcontent {
+  padding: 0.5em 0.5em;
+  text-align: left;
+//  margin: 0 auto;
+}
 .trackheader {
   color: $grey;
   text-align: left;
