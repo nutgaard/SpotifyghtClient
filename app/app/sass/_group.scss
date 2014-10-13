@@ -15,9 +15,9 @@
   display: flex;
 }
 .rowcontent {
-  padding: 0.5em 0.5em;
+//  padding: 0.5em 0.5em;
   text-align: left;
-//  margin: 0 auto;
+  margin: auto 0;
 }
 .trackheader {
   color: $grey;
@@ -38,7 +38,7 @@
   border-bottom: 1px;
   border-bottom-color: $greyOpaque;
   border-bottom-style: solid;
-  height: 2.7rem;
+  min-height: 2.7rem;
 }
 .track:hover {
   color: $highlightGreen;
@@ -64,7 +64,7 @@
 }
 .vote {
   font-size: 12px;
-  padding-left: 1px;
+  padding-left: 0.3rem;
   color: $grey;
   text-align: left;
   @include user-select(none);
