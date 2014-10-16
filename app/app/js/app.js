@@ -17,7 +17,8 @@
         'LocalStoreService'
     ])
         //.constant('API_ENDPOINT', 'http://10.0.1.2:3001/')
-        .constant('API_ENDPOINT', 'http://api.logisk-dev.org:3001/')
+        //.constant('API_ENDPOINT', 'http://api.logisk-dev.org:3001/')
+        .constant('API_ENDPOINT', 'https://www.logisk.org/api/')
         // .constant('API_ENDPOINT', 'http://knudix.mooo.com:3001/')
         .constant('SPOTIFY_TRACK_PREFIX', 'spotify:track:');
 

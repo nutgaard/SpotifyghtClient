@@ -34,4 +34,4 @@ ENV REDISDB redis
 
 EXPOSE 3000
 
-CMD ["prod.sh"]
+CMD ["/app/prod.sh"]
