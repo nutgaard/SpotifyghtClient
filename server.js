@@ -12,10 +12,14 @@ if(!SECRET) {
 var env = process.env.NODE_ENV || 'prod';
 
 var config = require('./config.json')[env];
+
 var port = process.env.PORT || config.port || 5000;
 var resources = config.resources || '/app/app/';
 
 console.log('Launching appliction in %s mode', env);
+
+console.log('Config:');
+console.log(config);
 
 var cors = function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -40,7 +44,7 @@ app.use(session( {
         cookie: {
                 secure: false,
                 httpOnly: true,
-                domain: 'knudix.mooo.com',
+                domain: config.domain,
                 maxAge: 1000 * 60 * 60 * 24
             }
     }
