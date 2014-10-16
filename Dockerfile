@@ -32,6 +32,8 @@ RUN grunt prod
 
 ENV REDISDB redis
 
+ENV NODE_ENV prod
+
 EXPOSE 3000
 
 CMD ["node", "server.js"]
