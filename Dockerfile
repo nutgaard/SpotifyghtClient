@@ -8,7 +8,8 @@ RUN apt-get update && \
       apt-transport-https \
       lsb-release \
       build-essential \
-      python-all 
+      ruby \
+      ruby-dev
 
 RUN curl -sL https://deb.nodesource.com/setup | bash -
 RUN apt-get update
@@ -16,6 +17,8 @@ RUN apt-get install nodejs -y --force-yes
 
 # Install Bower & Grunt
 RUN npm install -g bower grunt-cli
+
+RUN gem install sass compass
 
 RUN groupadd -r spotifyght && useradd -r -g spotifyght spotifyght
 
