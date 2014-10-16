@@ -4,7 +4,7 @@
 @import "../components/searchbox/searchBox";
 @import "../components/spotifyplayer/spotifyPlayer";
 @import "group";
-@import '../components/fancyinput/FancyInput';
+@import '../components/fancyinput/fancyInput';
 
 *, *:before, *:after {
   @include box-sizing(border-box);
